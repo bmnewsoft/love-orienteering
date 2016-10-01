@@ -1,0 +1,20 @@
+//
+//  ADX.pch
+//  ADX
+//
+//  Created by MDJ on 2016/10/1.
+//  Copyright © 2016年 mdj. All rights reserved.
+//
+
+#ifndef ADX_pch
+#define ADX_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ADXMacro.h"
+#endif
+
+#endif /* ADX_pch */
