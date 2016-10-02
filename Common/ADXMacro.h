@@ -3,11 +3,17 @@
 //  ADX
 //
 //  Created by MDJ on 2016/10/1.
-//  Copyright © 2016年 mdj. All rights reserved.
+//  Copyright © 2016年 Bmnew. All rights reserved.
 //
 
 #ifndef ADXMacro_h
 #define ADXMacro_h
+
+#pragma mark AppDelegate
+
+#define ShareAppDelegate ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+
+
 
 
 #pragma mark Color
@@ -27,7 +33,7 @@
 
 
 #ifdef DEBUG
-#define MDJLog(format, ...) do {                                             \
+#define NSLog(format, ...) do {                                             \
 fprintf(stderr, "<%s : %d> %s\n",                                           \
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
 __LINE__, __func__);                                                        \

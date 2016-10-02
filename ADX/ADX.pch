@@ -3,7 +3,7 @@
 //  ADX
 //
 //  Created by MDJ on 2016/10/1.
-//  Copyright © 2016年 mdj. All rights reserved.
+//  Copyright © 2016年 Bmnew. All rights reserved.
 //
 
 #ifndef ADX_pch
@@ -15,6 +15,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "ADXMacro.h"
+#import "Constant.h"
 #endif
 
 #endif /* ADX_pch */

@@ -2,8 +2,8 @@
 //  Constant.h
 //  ADX
 //
-//  Created by yuanqiuyan on 2016/10/1.
-//  Copyright © 2016年 mdj. All rights reserved.
+//  Created by MDJ on 2016/10/1.
+//  Copyright © 2016年 Bmnew. All rights reserved.
 //
 
 #ifndef Constant_h

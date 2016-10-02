@@ -56,6 +56,20 @@
 		69A4180E1D9F53C9006E4E58 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A417E11D9F53C9006E4E58 /* UIImageView+HighlightedWebCache.m */; };
 		69A4180F1D9F53C9006E4E58 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A417E31D9F53C9006E4E58 /* UIImageView+WebCache.m */; };
 		69A418101D9F53C9006E4E58 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A417E51D9F53C9006E4E58 /* UIView+WebCacheOperation.m */; };
+		69B473731DA0A65A0079D7B7 /* ADXBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473721DA0A65A0079D7B7 /* ADXBaseViewController.m */; };
+		69B473791DA0AB880079D7B7 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473761DA0AB880079D7B7 /* EGORefreshTableHeaderView.m */; };
+		69B4737A1DA0AB880079D7B7 /* TTRefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473781DA0AB880079D7B7 /* TTRefreshTableFooterView.m */; };
+		69B4737D1DA0ABB80079D7B7 /* ADXBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4737C1DA0ABB80079D7B7 /* ADXBaseTableViewController.m */; };
+		69B473861DA0B24B0079D7B7 /* ADXRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473851DA0B24B0079D7B7 /* ADXRefreshTableViewController.m */; };
+		69B473891DA0F1670079D7B7 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473881DA0F1670079D7B7 /* APIClient.m */; };
+		69B4738C1DA0F9C70079D7B7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B4738B1DA0F9C70079D7B7 /* Login.storyboard */; };
+		69B4738F1DA0FA440079D7B7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4738E1DA0FA440079D7B7 /* LoginViewController.m */; };
+		69B473921DA1189F0079D7B7 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473911DA1189F0079D7B7 /* RegistViewController.m */; };
+		69B473951DA118BF0079D7B7 /* FindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473941DA118BF0079D7B7 /* FindPasswordViewController.m */; };
+		69B4739F1DA11EB60079D7B7 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473981DA11EB50079D7B7 /* TPKeyboardAvoidingCollectionView.m */; };
+		69B473A01DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739A1DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m */; };
+		69B473A11DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739C1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m */; };
+		69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +174,33 @@
 		69A418111D9F5483006E4E58 /* ADX.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADX.pch; sourceTree = "<group>"; };
 		69A418131D9F58D4006E4E58 /* ADXMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADXMacro.h; sourceTree = "<group>"; };
 		69A418151D9F625B006E4E58 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		69B473711DA0A65A0079D7B7 /* ADXBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADXBaseViewController.h; sourceTree = "<group>"; };
+		69B473721DA0A65A0079D7B7 /* ADXBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADXBaseViewController.m; sourceTree = "<group>"; };
+		69B473751DA0AB880079D7B7 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		69B473761DA0AB880079D7B7 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		69B473771DA0AB880079D7B7 /* TTRefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRefreshTableFooterView.h; sourceTree = "<group>"; };
+		69B473781DA0AB880079D7B7 /* TTRefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRefreshTableFooterView.m; sourceTree = "<group>"; };
+		69B4737B1DA0ABB80079D7B7 /* ADXBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADXBaseTableViewController.h; sourceTree = "<group>"; };
+		69B4737C1DA0ABB80079D7B7 /* ADXBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADXBaseTableViewController.m; sourceTree = "<group>"; };
+		69B473841DA0B24B0079D7B7 /* ADXRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADXRefreshTableViewController.h; sourceTree = "<group>"; };
+		69B473851DA0B24B0079D7B7 /* ADXRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADXRefreshTableViewController.m; sourceTree = "<group>"; };
+		69B473871DA0F1670079D7B7 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		69B473881DA0F1670079D7B7 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		69B4738B1DA0F9C70079D7B7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		69B4738D1DA0FA440079D7B7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		69B4738E1DA0FA440079D7B7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		69B473901DA1189F0079D7B7 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		69B473911DA1189F0079D7B7 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		69B473931DA118BF0079D7B7 /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
+		69B473941DA118BF0079D7B7 /* FindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordViewController.m; sourceTree = "<group>"; };
+		69B473971DA11EB50079D7B7 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		69B473981DA11EB50079D7B7 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		69B473991DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		69B4739A1DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		69B4739B1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		69B4739C1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		69B4739D1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +235,7 @@
 		69A417621D9F47B3006E4E58 /* ADX */ = {
 			isa = PBXGroup;
 			children = (
+				69B4738A1DA0F9980079D7B7 /* Login */,
 				69A417661D9F47B3006E4E58 /* AppDelegate.h */,
 				69A417671D9F47B3006E4E58 /* AppDelegate.m */,
 				69A417691D9F47B3006E4E58 /* ViewController.h */,
@@ -219,6 +261,8 @@
 		69A417881D9F4FC5006E4E58 /* Thirds */ = {
 			isa = PBXGroup;
 			children = (
+				69B473961DA11EB50079D7B7 /* TPKeyboardAvoiding */,
+				69B473741DA0AB880079D7B7 /* EGORefreshTable */,
 				69A417891D9F53C9006E4E58 /* AFNetworking */,
 				69A4179D1D9F53C9006E4E58 /* Extensions */,
 				69A417B01D9F53C9006E4E58 /* MBProgressHUD */,
@@ -354,10 +398,66 @@
 		69A418121D9F589D006E4E58 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				69B473701DA0A5CF0079D7B7 /* BaseViewController */,
 				69A418131D9F58D4006E4E58 /* ADXMacro.h */,
 				69A418151D9F625B006E4E58 /* Constant.h */,
+				69B473871DA0F1670079D7B7 /* APIClient.h */,
+				69B473881DA0F1670079D7B7 /* APIClient.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		69B473701DA0A5CF0079D7B7 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69B473711DA0A65A0079D7B7 /* ADXBaseViewController.h */,
+				69B473721DA0A65A0079D7B7 /* ADXBaseViewController.m */,
+				69B4737B1DA0ABB80079D7B7 /* ADXBaseTableViewController.h */,
+				69B4737C1DA0ABB80079D7B7 /* ADXBaseTableViewController.m */,
+				69B473841DA0B24B0079D7B7 /* ADXRefreshTableViewController.h */,
+				69B473851DA0B24B0079D7B7 /* ADXRefreshTableViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		69B473741DA0AB880079D7B7 /* EGORefreshTable */ = {
+			isa = PBXGroup;
+			children = (
+				69B473751DA0AB880079D7B7 /* EGORefreshTableHeaderView.h */,
+				69B473761DA0AB880079D7B7 /* EGORefreshTableHeaderView.m */,
+				69B473771DA0AB880079D7B7 /* TTRefreshTableFooterView.h */,
+				69B473781DA0AB880079D7B7 /* TTRefreshTableFooterView.m */,
+			);
+			path = EGORefreshTable;
+			sourceTree = "<group>";
+		};
+		69B4738A1DA0F9980079D7B7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				69B4738B1DA0F9C70079D7B7 /* Login.storyboard */,
+				69B4738D1DA0FA440079D7B7 /* LoginViewController.h */,
+				69B4738E1DA0FA440079D7B7 /* LoginViewController.m */,
+				69B473901DA1189F0079D7B7 /* RegistViewController.h */,
+				69B473911DA1189F0079D7B7 /* RegistViewController.m */,
+				69B473931DA118BF0079D7B7 /* FindPasswordViewController.h */,
+				69B473941DA118BF0079D7B7 /* FindPasswordViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		69B473961DA11EB50079D7B7 /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				69B473971DA11EB50079D7B7 /* TPKeyboardAvoidingCollectionView.h */,
+				69B473981DA11EB50079D7B7 /* TPKeyboardAvoidingCollectionView.m */,
+				69B473991DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.h */,
+				69B4739A1DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m */,
+				69B4739B1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.h */,
+				69B4739C1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m */,
+				69B4739D1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +487,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = mdj;
+				ORGANIZATIONNAME = Bmnew;
 				TargetAttributes = {
 					69A4175F1D9F47B3006E4E58 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -420,6 +520,7 @@
 				69A417731D9F47B3006E4E58 /* LaunchScreen.storyboard in Resources */,
 				69A417701D9F47B3006E4E58 /* Assets.xcassets in Resources */,
 				69A4176E1D9F47B3006E4E58 /* Main.storyboard in Resources */,
+				69B4738C1DA0F9C70079D7B7 /* Login.storyboard in Resources */,
 				69A417F91D9F53C9006E4E58 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +537,7 @@
 				69A418081D9F53C9006E4E58 /* SDWebImageManager.m in Sources */,
 				69A418091D9F53C9006E4E58 /* SDWebImagePrefetcher.m in Sources */,
 				69A4176B1D9F47B3006E4E58 /* ViewController.m in Sources */,
+				69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				69A417E71D9F53C9006E4E58 /* AFHTTPRequestOperationManager.m in Sources */,
 				69A417FF1D9F53C9006E4E58 /* UIScrollView+MJRefresh.m in Sources */,
 				69A418101D9F53C9006E4E58 /* UIView+WebCacheOperation.m in Sources */,
@@ -443,9 +545,11 @@
 				69A418071D9F53C9006E4E58 /* SDWebImageDownloaderOperation.m in Sources */,
 				69A417E91D9F53C9006E4E58 /* AFNetworkReachabilityManager.m in Sources */,
 				69A417EF1D9F53C9006E4E58 /* NSBundle+Extensions.m in Sources */,
+				69B473A11DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m in Sources */,
 				69A417F41D9F53C9006E4E58 /* UIButton+TitleImage.m in Sources */,
 				69A417ED1D9F53C9006E4E58 /* AFURLResponseSerialization.m in Sources */,
 				69A417FB1D9F53C9006E4E58 /* MJRefreshConst.m in Sources */,
+				69B4739F1DA11EB60079D7B7 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				69A417F01D9F53C9006E4E58 /* NSDate+Extensions.m in Sources */,
 				69A417F61D9F53C9006E4E58 /* UIImage+resize.m in Sources */,
 				69A417F11D9F53C9006E4E58 /* NSString+AES.m in Sources */,
@@ -456,20 +560,30 @@
 				69A417E81D9F53C9006E4E58 /* AFHTTPSessionManager.m in Sources */,
 				69A4180F1D9F53C9006E4E58 /* UIImageView+WebCache.m in Sources */,
 				69A417EC1D9F53C9006E4E58 /* AFURLRequestSerialization.m in Sources */,
+				69B473731DA0A65A0079D7B7 /* ADXBaseViewController.m in Sources */,
+				69B4737D1DA0ABB80079D7B7 /* ADXBaseTableViewController.m in Sources */,
 				69A4180A1D9F53C9006E4E58 /* UIButton+WebCache.m in Sources */,
+				69B4738F1DA0FA440079D7B7 /* LoginViewController.m in Sources */,
+				69B473921DA1189F0079D7B7 /* RegistViewController.m in Sources */,
 				69A418061D9F53C9006E4E58 /* SDWebImageDownloader.m in Sources */,
+				69B473791DA0AB880079D7B7 /* EGORefreshTableHeaderView.m in Sources */,
 				69A4180D1D9F53C9006E4E58 /* UIImage+WebP.m in Sources */,
+				69B4737A1DA0AB880079D7B7 /* TTRefreshTableFooterView.m in Sources */,
 				69A4180C1D9F53C9006E4E58 /* UIImage+MultiFormat.m in Sources */,
+				69B473861DA0B24B0079D7B7 /* ADXRefreshTableViewController.m in Sources */,
 				69A417F81D9F53C9006E4E58 /* MBProgressHUD.m in Sources */,
 				69A417F51D9F53C9006E4E58 /* UIDevice+Extensions.m in Sources */,
 				69A417EE1D9F53C9006E4E58 /* AFURLSessionManager.m in Sources */,
 				69A418041D9F53C9006E4E58 /* SDWebImageCompat.m in Sources */,
+				69B473951DA118BF0079D7B7 /* FindPasswordViewController.m in Sources */,
 				69A417681D9F47B3006E4E58 /* AppDelegate.m in Sources */,
 				69A418051D9F53C9006E4E58 /* SDWebImageDecoder.m in Sources */,
 				69A418031D9F53C9006E4E58 /* SDImageCache.m in Sources */,
 				69A418011D9F53C9006E4E58 /* MKAnnotationView+WebCache.m in Sources */,
 				69A417F71D9F53C9006E4E58 /* UIView+Toast.m in Sources */,
+				69B473891DA0F1670079D7B7 /* APIClient.m in Sources */,
 				69A417FA1D9F53C9006E4E58 /* MJRefreshBaseView.m in Sources */,
+				69B473A01DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				69A417FC1D9F53C9006E4E58 /* MJRefreshFooterView.m in Sources */,
 				69A417F31D9F53C9006E4E58 /* NSString+URLEncoding.m in Sources */,
 				69A418021D9F53C9006E4E58 /* NSData+ImageContentType.m in Sources */,
