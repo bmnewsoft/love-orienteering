@@ -30,6 +30,9 @@
 //加密
 #define DIGEST_URL          @"digest"
 
+//获取数据
+#define DATA_URL                @"DoData"
+
 
 
 #endif /* Constant_h */

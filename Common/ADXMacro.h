@@ -25,6 +25,13 @@
 #define UIColorHSL(h, s, l)     [UIColor colorWithHue:(h)/255.0f saturation:(s)/255.0f brightness:(l)/255.0f alpha:1.0f]
 #define UIColorHSLA(h, s, l, a) [UIColor colorWithHue:(h)/255.0f saturation:(s)/255.0f brightness:(l)/255.0f alpha:(a)/255.0f]
 
+#pragma mark size
+
+#define ScreenWidth  [[UIScreen mainScreen] bounds].size.width
+#define ScreenHeigth [[UIScreen mainScreen] bounds].size.height
+
+
+
 
 
 
@@ -44,6 +51,10 @@ fprintf(stderr, "-------\n");                                               \
 #define NSLog(format, ...)
 #endif
 
+
+#pragma mark 控制判断
+
+#define $safe(obj)        ((NSNull *)(obj) == [NSNull null] ? nil : (obj))
 
 
 #endif /* ADXMacro_h */

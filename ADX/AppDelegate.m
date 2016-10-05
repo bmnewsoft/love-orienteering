@@ -20,9 +20,20 @@
     NSLog(@"cheshi");
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
+//    [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [ADXAppearance setNavigationBarAppearance];
+    [self setDefaultBackGroundImage];
     return YES;
+}
+
+- (void) setDefaultBackGroundImage
+{
+    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
+    UIImage * image = [UIImage imageNamed:@"index_bg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 32, size.width, size.height)];
+    imageView.image = image;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.window addSubview:imageView];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
