@@ -70,6 +70,7 @@
 		69B473A01DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739A1DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m */; };
 		69B473A11DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739C1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m */; };
 		69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		69B473A51DA39D390079D7B7 /* ADXAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473A41DA39D390079D7B7 /* ADXAppearance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,6 +202,8 @@
 		69B4739C1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		69B4739D1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		69B473A31DA39D390079D7B7 /* ADXAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADXAppearance.h; sourceTree = "<group>"; };
+		69B473A41DA39D390079D7B7 /* ADXAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADXAppearance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +406,8 @@
 				69A418151D9F625B006E4E58 /* Constant.h */,
 				69B473871DA0F1670079D7B7 /* APIClient.h */,
 				69B473881DA0F1670079D7B7 /* APIClient.m */,
+				69B473A31DA39D390079D7B7 /* ADXAppearance.h */,
+				69B473A41DA39D390079D7B7 /* ADXAppearance.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				69A417FE1D9F53C9006E4E58 /* UIScrollView+MJExtension.m in Sources */,
 				69A417E61D9F53C9006E4E58 /* AFHTTPRequestOperation.m in Sources */,
 				69A418081D9F53C9006E4E58 /* SDWebImageManager.m in Sources */,
+				69B473A51DA39D390079D7B7 /* ADXAppearance.m in Sources */,
 				69A418091D9F53C9006E4E58 /* SDWebImagePrefetcher.m in Sources */,
 				69A4176B1D9F47B3006E4E58 /* ViewController.m in Sources */,
 				69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -703,7 +709,7 @@
 				INFOPLIST_FILE = ADX/Info.plist;
 				INSTALL_OWNER = MDJ;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ADX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -717,6 +723,7 @@
 				INFOPLIST_FILE = ADX/Info.plist;
 				INSTALL_OWNER = MDJ;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ADX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

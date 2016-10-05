@@ -13,10 +13,22 @@
 
 //服务器地址
 #ifdef DEBUG
-#define SERVER_URL          @"http://123.57.190.60:8080/api/"
+#define SERVER_URL          @"http://wx.wispark.cn/QSServer/"
 #else
 #define SERVER_URL          @"http://123.57.190.60:8080/api/"
 #endif
+
+//登陆
+#define LOGIN_URL           @"Login"
+
+//发送验证码
+#define SMS_URL             @"sms"
+
+//注册
+#define REGIST_URL          @"user"
+
+//加密
+#define DIGEST_URL          @"digest"
 
 
 

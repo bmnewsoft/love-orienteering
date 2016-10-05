@@ -7,6 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import "APIClient.h"
+#import "NSString+Extensions.h"
+#import "NSString+URLEncoding.h"
 
 @interface LoginViewController ()
 
@@ -26,6 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+#ifdef DEBUG
+    _userNameTextField.text = @"18686607249";
+    _passwordTextField.text = @"123";
+#endif
+    
     // Do any additional setup after loading the view.
 }
 
@@ -54,9 +62,10 @@
 
 - (IBAction)loginAction:(id)sender
 {
+    [self showLoadingView];
     if (self.userNameTextField.text.length<= 0)
     {
-        [self showToast:@"账号不能为空"];
+        [self showToast:@"手机号不能为空"];
         return;
     }
     if (self.passwordTextField.text.length<= 0)
@@ -64,9 +73,32 @@
         [self showToast:@"密码不能为空"];
         return;
     }
-    [self showLoadingView];
-    [self showAlertWithTitle:@"cheng" message:@"gong"];
-    [self hideLoadingView];
+    
+    if (![self.userNameTextField.text isMobileNumber])
+    {
+        [self showToast:@"请输入正确的手机号"];
+        return;
+    }
+    
+    NSString *password = [APIClient digestPassword:self.passwordTextField.text];
+    
+    NSDictionary *paramet = @{@"appcode":@"A01",
+                              @"groupcode":@"DataSysUser",
+                              
+                              @"loginname":self.userNameTextField.text,
+                              @"pwd":password
+                              };
+    
+    [[APIClient sharedClient] requestPath:LOGIN_URL parameters:paramet success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self hideLoadingView];
+        NSInteger successCode =  [[JSON valueForKey:@"success"] integerValue];
+        NSString *message     =  [JSON valueForKey:@"message"];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self showNetworkNotAvailable];
+        [self hideLoadingView];
+    }];
+    
 }
 
 

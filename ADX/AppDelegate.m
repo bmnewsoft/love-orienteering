@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ADXAppearance.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"cheshi");
     // Override point for customization after application launch.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
+    [ADXAppearance setNavigationBarAppearance];
     return YES;
 }
 

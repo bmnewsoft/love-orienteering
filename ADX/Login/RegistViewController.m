@@ -7,6 +7,8 @@
 //
 
 #import "RegistViewController.h"
+#import "APIClient.h"
+#import "NSString+Extensions.h"
 
 @interface RegistViewController ()
 
@@ -31,7 +33,11 @@ static int myTime;
     [self setBackButton];
     self.sendCodeLable.layer.cornerRadius = 5;
     self.sendCodeLable.layer.masksToBounds = YES;
-    
+#ifdef DEBUG
+    _mobileField.text = @"18686607249";
+    _passwordTextField.text = @"1234";
+    _verifyCodeField.text = @"1234";
+#endif
     self.navigationController.navigationBarHidden = NO;
     // Do any additional setup after loading the view.
 }
@@ -79,7 +85,8 @@ static int myTime;
 
 
 #pragma mark send code action
-- (IBAction)userSendCode:(UIButton *)sender {
+- (IBAction)userSendCode:(UIButton *)sender
+{
     
     [self.view endEditing:YES];
     
@@ -92,6 +99,38 @@ static int myTime;
         [self showToast:@"手机号不能为空"];
         return;
     }
+    
+    if (![mobile isMobileNumber])
+    {
+        [self showToast:@"请输入正确的手机号"];
+        return;
+    }
+    NSDictionary * parameter1 = @{@"jsons":@{@"minu":@"5",
+                                            @"n":@"4",
+                                            @"version":@"43242",
+                                            @"phone":mobile}
+                                 };
+    NSDictionary * parameter = @{@"jsons":[NSString stringWithFormat:@"{\"minu\": \"5\",\"n\": 4,\"phone\": \"%@\",\"version\": \"43242\"}",mobile]
+                                 };
+    [[APIClient sharedClient] requestPath:SMS_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON)
+     {
+         [self hideLoadingView];
+         self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeButtonName) userInfo:nil repeats:YES];
+         self.sendCodeButton.enabled = NO;
+         self.sendCodeLable.backgroundColor = [UIColor grayColor];
+         self.sendCodeLable.text = @"60秒后重新获取";
+         myTime = 60;
+         if ([[JSON valueForKey:@"success"] integerValue] == 1)
+         {
+             self.sendCodeLable.text = @"验证码获取失败";
+             myTime = 1;
+             [self showToast:@"验证码获取失败"];
+         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+        [self showNetworkNotAvailable];
+    }];
+    
 }
 
 
@@ -118,7 +157,26 @@ static int myTime;
         [self showToast:@"验证码不能为空"];
         return;
     }
+    if (![mobile isMobileNumber])
+    {
+        [self showToast:@"请输入正确的手机号"];
+        return;
+    }
+    NSDictionary *parameter =@{@"jsons":@{@"code":verifyCode,
+                                        @"opty":@"code",
+                                        @"password":password,
+                                        @"phone":mobile}
+                             };
+    [[APIClient sharedClient] requestPath:REGIST_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self showToast:[JSON valueForKey:@"message"]];
+        [self hideLoadingView];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+    }];
+    
 }
+
+
 
 /*
 #pragma mark - Navigation

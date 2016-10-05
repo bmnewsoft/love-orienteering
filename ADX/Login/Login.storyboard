@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6d9-ea-9op">
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2064" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
@@ -85,7 +85,7 @@
                                             <rect key="frame" x="98" y="245" width="204" height="35"/>
                                         </variation>
                                         <connections>
-                                            <action selector="loginAction:" destination="Buu-bd-pRa" eventType="touchUpInside" id="7s6-1V-qJb"/>
+                                            <action selector="loginAction:" destination="Buu-bd-pRa" eventType="touchUpInside" id="f4H-qb-SoJ"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入您的账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iwb-cB-TSF">

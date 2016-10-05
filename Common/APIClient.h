@@ -23,4 +23,6 @@
                                 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
++ (NSString *) digestPassword:(NSString *)origin;
+
 @end

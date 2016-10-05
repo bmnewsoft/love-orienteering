@@ -11,5 +11,5 @@
 @interface NSString (URLEncoding)
 
 - (NSString*)URLEncodedString;
-
+- (NSString *)Base64Encode;
 @end

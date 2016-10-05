@@ -14,4 +14,8 @@
 
 - (NSString *) urlEncodeString;
 
+- (NSString *) MD5String_16;
+
+- (BOOL)isMobileNumber;
+
 @end

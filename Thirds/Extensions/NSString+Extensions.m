@@ -27,16 +27,37 @@
     }
     
     return outputString;
+    
+    
 }
 
--(NSString *)urlEncodeString
-{
-    NSString *result = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                             (__bridge CFStringRef)self,
-                                                                                             NULL,
-                                                                                             NULL,
-                                                                                             kCFStringEncodingUTF8);
+//16位MD5加密方式
+- (NSString *)MD5String_16{
+    //提取32位MD5散列的中间16位
+    NSString *md5_32Bit_String=[self MD5String];
+    NSString *result = [[md5_32Bit_String substringToIndex:24] substringFromIndex:8];//即9～25位
+    
     return result;
+}
+
+- (NSString *) Base64Encode
+{
+    NSData * data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    return [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
+}
+
+- (BOOL)isMobileNumber
+{
+    NSString *pattern = @"^(13[0-9]|14[5,7]|15[0-3,5-9]|17[0,6,7,8]|18[0-9])\\d{8}$";
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    if (([regextestmobile evaluateWithObject:self] == YES))
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 @end

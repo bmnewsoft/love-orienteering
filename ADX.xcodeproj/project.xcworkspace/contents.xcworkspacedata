@@ -3,6 +3,6 @@
    version = "1.0">
    <Group
       location = "container:"
-      name = "New Group 1">
+      name = "1">
    </Group>
 </Workspace>

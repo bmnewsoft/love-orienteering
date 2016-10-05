@@ -61,4 +61,29 @@ static NSString * const APIBaseURLString = SERVER_URL;
 }
 
 
++ (NSString *) digestPassword:(NSString *)origin
+{
+    NSString *strURL = [NSString stringWithFormat:@"%@%@?input=%@",SERVER_URL,DIGEST_URL,origin];
+    
+    //通过url创建网络请求
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:strURL]];
+    
+    NSError *error =nil;
+    
+    //同步方式连接服务器
+    
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    //json 解析返回数据
+    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    
+    if (resultDic != NULL)
+    {
+        return resultDic[@"message"];
+    }
+    return error.description;
+}
+
+
 @end
