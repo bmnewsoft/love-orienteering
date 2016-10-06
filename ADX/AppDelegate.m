@@ -29,8 +29,8 @@
 - (void) setDefaultBackGroundImage
 {
     CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
-    UIImage * image = [UIImage imageNamed:@"index_bg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 32, size.width, size.height)];
+    UIImage * image = [UIImage imageNamed:@"app_bg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     imageView.image = image;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.window addSubview:imageView];

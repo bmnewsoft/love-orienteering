@@ -40,7 +40,9 @@
                                @"keyvalue":@1,
                                @"userid":@1
                                };
+    
     [[APIClient sharedClient] requestPath:DATA_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        
         [self hideLoadingView];
         NSArray *items = [JSON objectForKey:@"items"];
         for (NSDictionary * attri in items)
@@ -50,6 +52,7 @@
             NSLog(@"%@",model);
         }
         [self.tableView reloadData];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showNetworkNotAvailable];
         [self hideLoadingView];

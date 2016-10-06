@@ -105,11 +105,7 @@ static int myTime;
         [self showToast:@"请输入正确的手机号"];
         return;
     }
-    NSDictionary * parameter1 = @{@"jsons":@{@"minu":@"5",
-                                            @"n":@"4",
-                                            @"version":@"43242",
-                                            @"phone":mobile}
-                                 };
+    
     NSDictionary * parameter = @{@"jsons":[NSString stringWithFormat:@"{\"minu\": \"5\",\"n\": 4,\"phone\": \"%@\",\"version\": \"43242\"}",mobile]
                                  };
     [[APIClient sharedClient] requestPath:SMS_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON)

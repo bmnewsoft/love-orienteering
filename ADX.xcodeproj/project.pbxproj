@@ -13,6 +13,10 @@
 		69252F981DA4D50D005EE2E5 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252F971DA4D50D005EE2E5 /* BaseModel.m */; };
 		69252F9C1DA4DE96005EE2E5 /* IndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252F9B1DA4DE96005EE2E5 /* IndexCell.m */; };
 		69252F9E1DA4F8D1005EE2E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69252F9D1DA4F8D1005EE2E5 /* Default-568h@2x.png */; };
+		69252FA11DA5DF52005EE2E5 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */; };
+		6985A1881DA62E2B00F1FB69 /* task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6985A1871DA62E2B00F1FB69 /* task.storyboard */; };
+		6985A18C1DA6597600F1FB69 /* TaskIngViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */; };
+		6985A1901DA659F000F1FB69 /* TaskIngCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985A18F1DA659F000F1FB69 /* TaskIngCell.m */; };
 		69A417651D9F47B3006E4E58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A417641D9F47B3006E4E58 /* main.m */; };
 		69A417681D9F47B3006E4E58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A417671D9F47B3006E4E58 /* AppDelegate.m */; };
 		69A4176B1D9F47B3006E4E58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A4176A1D9F47B3006E4E58 /* ViewController.m */; };
@@ -91,6 +95,13 @@
 		69252F9A1DA4DE96005EE2E5 /* IndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexCell.h; sourceTree = "<group>"; };
 		69252F9B1DA4DE96005EE2E5 /* IndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexCell.m; sourceTree = "<group>"; };
 		69252F9D1DA4F8D1005EE2E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		69252F9F1DA5DF52005EE2E5 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		6985A1871DA62E2B00F1FB69 /* task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = task.storyboard; sourceTree = "<group>"; };
+		6985A18A1DA6597600F1FB69 /* TaskIngViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskIngViewController.h; sourceTree = "<group>"; };
+		6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskIngViewController.m; sourceTree = "<group>"; };
+		6985A18E1DA659F000F1FB69 /* TaskIngCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskIngCell.h; sourceTree = "<group>"; };
+		6985A18F1DA659F000F1FB69 /* TaskIngCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskIngCell.m; sourceTree = "<group>"; };
 		69A417601D9F47B3006E4E58 /* ADX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A417641D9F47B3006E4E58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69A417661D9F47B3006E4E58 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -242,6 +253,8 @@
 				69252F901DA4B229005EE2E5 /* IndexViewController.m */,
 				69252F921DA4D12A005EE2E5 /* IndexTableViewController.h */,
 				69252F931DA4D12A005EE2E5 /* IndexTableViewController.m */,
+				69252F9F1DA5DF52005EE2E5 /* QRCodeViewController.h */,
+				69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */,
 			);
 			path = Index;
 			sourceTree = "<group>";
@@ -260,6 +273,33 @@
 			children = (
 				69252F9A1DA4DE96005EE2E5 /* IndexCell.h */,
 				69252F9B1DA4DE96005EE2E5 /* IndexCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6985A1861DA62E0300F1FB69 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				6985A18D1DA659D000F1FB69 /* Views */,
+				6985A1871DA62E2B00F1FB69 /* task.storyboard */,
+				6985A18A1DA6597600F1FB69 /* TaskIngViewController.h */,
+				6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		6985A1891DA62FA300F1FB69 /* Ucenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ucenter;
+			sourceTree = "<group>";
+		};
+		6985A18D1DA659D000F1FB69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6985A18E1DA659F000F1FB69 /* TaskIngCell.h */,
+				6985A18F1DA659F000F1FB69 /* TaskIngCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +326,8 @@
 		69A417621D9F47B3006E4E58 /* ADX */ = {
 			isa = PBXGroup;
 			children = (
+				6985A1891DA62FA300F1FB69 /* Ucenter */,
+				6985A1861DA62E0300F1FB69 /* Task */,
 				69252F8B1DA4B127005EE2E5 /* Index */,
 				69B4738A1DA0F9980079D7B7 /* Login */,
 				69A417661D9F47B3006E4E58 /* AppDelegate.h */,
@@ -576,6 +618,7 @@
 			files = (
 				69A417731D9F47B3006E4E58 /* LaunchScreen.storyboard in Resources */,
 				69A417701D9F47B3006E4E58 /* Assets.xcassets in Resources */,
+				6985A1881DA62E2B00F1FB69 /* task.storyboard in Resources */,
 				69A4176E1D9F47B3006E4E58 /* Main.storyboard in Resources */,
 				69B4738C1DA0F9C70079D7B7 /* Login.storyboard in Resources */,
 				69A417F91D9F53C9006E4E58 /* MJRefresh.bundle in Resources */,
@@ -594,6 +637,7 @@
 				69A417E61D9F53C9006E4E58 /* AFHTTPRequestOperation.m in Sources */,
 				69A418081D9F53C9006E4E58 /* SDWebImageManager.m in Sources */,
 				69B473A51DA39D390079D7B7 /* ADXAppearance.m in Sources */,
+				6985A18C1DA6597600F1FB69 /* TaskIngViewController.m in Sources */,
 				69A418091D9F53C9006E4E58 /* SDWebImagePrefetcher.m in Sources */,
 				69A4176B1D9F47B3006E4E58 /* ViewController.m in Sources */,
 				69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -605,6 +649,7 @@
 				69A417E91D9F53C9006E4E58 /* AFNetworkReachabilityManager.m in Sources */,
 				69A417EF1D9F53C9006E4E58 /* NSBundle+Extensions.m in Sources */,
 				69B473A11DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m in Sources */,
+				6985A1901DA659F000F1FB69 /* TaskIngCell.m in Sources */,
 				69A417F41D9F53C9006E4E58 /* UIButton+TitleImage.m in Sources */,
 				69A417ED1D9F53C9006E4E58 /* AFURLResponseSerialization.m in Sources */,
 				69A417FB1D9F53C9006E4E58 /* MJRefreshConst.m in Sources */,
@@ -650,6 +695,7 @@
 				69A417FC1D9F53C9006E4E58 /* MJRefreshFooterView.m in Sources */,
 				69A417F31D9F53C9006E4E58 /* NSString+URLEncoding.m in Sources */,
 				69A418021D9F53C9006E4E58 /* NSData+ImageContentType.m in Sources */,
+				69252FA11DA5DF52005EE2E5 /* QRCodeViewController.m in Sources */,
 				69A4180E1D9F53C9006E4E58 /* UIImageView+HighlightedWebCache.m in Sources */,
 				69252F8A1DA49860005EE2E5 /* TabBarController.m in Sources */,
 				69A417FD1D9F53C9006E4E58 /* MJRefreshHeaderView.m in Sources */,

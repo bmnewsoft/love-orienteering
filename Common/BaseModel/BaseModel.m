@@ -82,7 +82,6 @@
 -(NSString *)description
 {
     NSMutableString *str = [NSMutableString string];
-    NSString *className = NSStringFromClass([self class]);
     NSDictionary *dic = [self mapPropertiesToDictionary];
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [str appendFormat:@"%@ = %@\n", key, obj];
