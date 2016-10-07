@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ADXAppearance.h"
 
+#import "ADXCache.h"
+
 @interface AppDelegate ()
 
 @end
@@ -24,16 +26,6 @@
     [ADXAppearance setNavigationBarAppearance];
     [self setDefaultBackGroundImage];
     return YES;
-}
-
-- (void) setDefaultBackGroundImage
-{
-    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
-    UIImage * image = [UIImage imageNamed:@"app_bg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    imageView.image = image;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.window addSubview:imageView];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -57,5 +49,44 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark InitWindowBackGround
+
+- (void) setDefaultBackGroundImage
+{
+    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
+    UIImage * image = [UIImage imageNamed:@"app_bg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    imageView.image = image;
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.window addSubview:imageView];
+}
+
+#pragma mark User
+@synthesize user = _user;
+
+- (void)setUser:(MUser *)user
+{
+    _user = user;
+    if (_user)
+    {
+        [ADXCache writeObject:_user toFile:fUserCache];
+        
+    }
+    else
+    {
+        [ADXCache removeObjectForName:fUserCache];
+    }
+}
+
+- (MUser*)user
+{
+    if (!_user)
+    {
+        _user = [ADXCache objectFromFile:fUserCache];
+    }
+    return _user;
+}
+
 
 @end

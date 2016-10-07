@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class MUser;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic,strong) MUser *user;
 
 
 @end

@@ -324,4 +324,18 @@
     [[SDImageCache sharedImageCache] clearMemory];
 }
 
+- (void)instantiateStoryBoard:(NSString *)storyBoardName
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
+    UIViewController *Vc = [storyBoard instantiateInitialViewController];
+    [UIView transitionWithView:ShareAppDelegate.window
+                      duration:0.01
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        ShareAppDelegate.window.rootViewController = Vc;
+                    }
+                    completion:nil];
+}
+
+
 @end

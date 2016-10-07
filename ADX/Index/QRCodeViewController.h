@@ -14,8 +14,7 @@
     int num;
     BOOL upOrdown;
     NSTimer * timer;
-    UIImageView * imageView;
-    
+    CGFloat lineIV_Y;
     BOOL hasCameraRight;
 }
 @property (strong,nonatomic)AVCaptureDevice * device;

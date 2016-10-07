@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import "ADXMacro.h"
 #import "Constant.h"
+#import "ADXUserDefault.h"
+#import "APIClient.h"
 #endif
 
 #endif /* ADX_pch */

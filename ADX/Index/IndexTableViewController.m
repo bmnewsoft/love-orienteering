@@ -7,6 +7,7 @@
 //
 
 #import "IndexTableViewController.h"
+#import "AppDelegate.h"
 #import "APIClient.h"
 #import "BaseModel.h"
 
@@ -35,23 +36,36 @@
 - (void)loadData
 {
     [self showLoadingView];
-    NSDictionary *parameter =@{@"appcode":@"A01",
-                               @"groupcode":@"A01_P1_G2",
-                               @"keyvalue":@1,
-                               @"userid":@1
+    
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    if (userId == FAILED_CODE)
+    {
+        [self instantiateStoryBoard:@"Login"];
+    }
+    
+    NSDictionary *parameter =@{pAPPCODE,
+                               pGROUPCODE:@"A01_P1_G2",
+                               pKEYVALUE:@1,
+                               pUSERID:[NSNumber numberWithInteger:userId]
                                };
     
     [[APIClient sharedClient] requestPath:DATA_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
         
         [self hideLoadingView];
         NSArray *items = [JSON objectForKey:@"items"];
-        for (NSDictionary * attri in items)
-        {
-            BaseModel *model = [[BaseModel alloc] initWithAttributes:attri];
-            [_datas addObject:model];
-            NSLog(@"%@",model);
+        Response *response = [Response responseWithDict:JSON];
+        if (response.code == FAILED_CODE) {
+            [self showToash:response.message];
         }
-        [self.tableView reloadData];
+        else
+        {
+            for (NSDictionary * attri in items)
+            {
+                BaseModel *model = [[BaseModel alloc] initWithDic:attri];
+                [_datas addObject:model];
+            }
+            [self.tableView reloadData];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showNetworkNotAvailable];
@@ -63,7 +77,7 @@
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _datas.count;
+    return _datas.count == 0 ? 0 : 10;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -74,9 +88,13 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     IndexCell *cell =[tableView dequeueReusableCellWithIdentifier:@"IndexCell"];
-    [cell setModel:_datas[indexPath.row]];
+    [cell setModel:_datas[0]];
     return cell;
 }
+
+#pragma mark ToLogin
+
+
 /*
 #pragma mark - Navigation
 

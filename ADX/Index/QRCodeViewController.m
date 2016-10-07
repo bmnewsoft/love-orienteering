@@ -9,6 +9,9 @@
 #import "QRCodeViewController.h"
 
 @interface QRCodeViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *scanFrameImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *scanLineImageView;
+
 
 @end
 
@@ -16,12 +19,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    upOrdown = NO;
+    num =0;
+    lineIV_Y = CGRectGetMinY(_scanLineImageView.frame);
+    [self cameraAuthor];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([self isCamerAuthorized]) {
+        if (_session && ![_session isRunning]) {
+            [_session startRunning];
+        }
+        timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(scanAnimation) userInfo:nil repeats:YES];
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [timer invalidate];
+
 }
 
 #pragma mark 设置相机
@@ -46,6 +68,19 @@
             [_session startRunning];
         });
     });
+}
+#pragma mark 相机权限
+- (BOOL)isCamerAuthorized
+{
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    
+    if(authStatus == AVAuthorizationStatusAuthorized)
+    {
+        hasCameraRight = YES;
+        return YES;
+    }
+    hasCameraRight = NO;
+    return NO;
 }
 
 #pragma mark 相机授权
@@ -111,10 +146,34 @@
             
             NSArray *typeList = self.output.availableMetadataObjectTypes;
             NSLog(@"availableMetadataObjectTypes : %@", typeList);
-            self.output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+            if ([typeList containsObject:AVMetadataObjectTypeQRCode])
+            {
+                self.output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+            }
         }
     }
     return _session;
+}
+
+#pragma mark 扫描动画
+-(void)scanAnimation
+{
+    CGFloat lineY = CGRectGetMinY(_scanLineImageView.frame);
+    if (upOrdown == NO) {
+        num ++;
+        _scanLineImageView.frame = CGRectMake(CGRectGetMinX(_scanLineImageView.frame), lineIV_Y + 2*num, CGRectGetWidth(_scanLineImageView.frame), CGRectGetHeight(_scanLineImageView.frame));
+        if (2 * num >= CGRectGetHeight(_scanFrameImageView.frame) - 10) {
+            upOrdown = YES;
+        }
+    }
+    else {
+        num --;
+        _scanLineImageView.frame = CGRectMake(CGRectGetMinX(_scanLineImageView.frame), lineIV_Y + 2*num, CGRectGetWidth(_scanLineImageView.frame), CGRectGetHeight(_scanLineImageView.frame));
+        if (num == 0) {
+            upOrdown = NO;
+        }
+    }
+    
 }
 
 #pragma mark AVCaptureMetadataOutputObjectsDelegate
@@ -139,5 +198,6 @@
     }
     
 }
+
 
 @end

@@ -39,5 +39,26 @@
 @property(nonatomic,strong) NSString *src10;
 @property(nonatomic,strong) NSString *doviewname;
 
--(in) initWithAttributes:(NSDictionary *)attributes;
+-(in) initWithDic:(NSDictionary *)dic;
+
 @end
+
+@interface MUser : NSObject<NSCoding>
+@property (nonatomic,strong) NSString *password;
+@property (nonatomic,strong) NSString *phoneNum;
+@property (nonatomic,strong) NSString *userName;
+@property (nonatomic,assign) NSInteger userID;
++(MUser *)UserWithDic:(NSDictionary *)dic;
+@end
+
+@interface Response : NSObject
+
+@property (nonatomic) NSInteger code;
+@property (nonatomic, strong) NSString* message;
+@property (nonatomic) BOOL hasMore;
+
++ (Response*)responseWithDict:(NSDictionary*)dict;
+
+
+@end
+

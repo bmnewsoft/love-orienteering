@@ -14,8 +14,6 @@
 #define ShareAppDelegate ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 
 
-
-
 #pragma mark Color
 
 
@@ -55,6 +53,10 @@ fprintf(stderr, "-------\n");                                               \
 #pragma mark 控制判断
 
 #define $safe(obj)        ((NSNull *)(obj) == [NSNull null] ? nil : (obj))
+
+#pragma mark Storyboard
+
+#define STORYBOARDWITHNAME(nameStr) [UIStoryboard storyboardWithName:nameStr bundle:nil];
 
 
 #endif /* ADXMacro_h */

@@ -11,6 +11,8 @@
 
 #pragma mark url
 
+#define FAILED_CODE         -1
+
 //服务器地址
 #ifdef DEBUG
 #define SERVER_URL          @"http://wx.wispark.cn/QSServer/"
@@ -31,8 +33,25 @@
 #define DIGEST_URL          @"digest"
 
 //获取数据
-#define DATA_URL                @"DoData"
+#define DATA_URL            @"DoData"
+
+#pragma mark parameters
+
+#define pAPPCODE             @"appcode":@"A01"
+
+#define pGROUPCODE           @"groupcode"
+
+#define pKEYVALUE            @"keyvalue"
+
+#define pUSERID              @"userid"
 
 
+#pragma mark FileName
+
+#define fUserCache          @"LoginUser.plist"
+
+#pragma mark KEY
+
+#define kUSERID             @"KUserId"
 
 #endif /* Constant_h */

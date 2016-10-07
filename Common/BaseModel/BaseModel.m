@@ -9,41 +9,59 @@
 #import "BaseModel.h"
 #import <objc/runtime.h>
 
+@implementation NSDictionary (NullReplace)
+
+- (id)objectForKeyNotNull:(NSString *)key
+{
+    id object = [self objectForKey:key];
+    if ([object isKindOfClass:[NSNumber class]] ||
+        [object isKindOfClass:[NSString class]] ||
+        [object isKindOfClass:[NSArray class]] ||
+        [object isKindOfClass:[NSDictionary class]])
+    {
+        return object;
+    }
+    return nil;
+}
+
+@end
+
+
 @implementation BaseModel
 
--(in) initWithAttributes:(NSDictionary *)attributes
+-(id) initWithDic:(NSDictionary *)dic
 {
     self = [super init];
-    if (self && attributes)
+    if (self && dic)
     {
-        self.evet       = $safe([attributes objectForKey:@"evet"]);
-        self.target     = $safe([attributes objectForKey:@"target"]);
-        self.refresh    = $safe([attributes objectForKey:@"refresh"]);
-        self.layouttype = $safe([attributes objectForKey:@"layouttype"]);
-        self.visible    = $safe([attributes objectForKey:@"visible"]);
-        self.fkvalue    = $safe([attributes objectForKey:@"fkvalue"]);
-        self.keyvalue   = $safe([attributes objectForKey:@"keyvalue"]);
-        self.title1     = $safe([attributes objectForKey:@"title1"]);
-        self.title2     = $safe([attributes objectForKey:@"title2"]);
-        self.title3     = $safe([attributes objectForKey:@"title3"]);
-        self.title4     = $safe([attributes objectForKey:@"title4"]);
-        self.title5     = $safe([attributes objectForKey:@"title5"]);
-        self.title6     = $safe([attributes objectForKey:@"title6"]);
-        self.title7     = $safe([attributes objectForKey:@"title7"]);
-        self.title8     = $safe([attributes objectForKey:@"title8"]);
-        self.title9     = $safe([attributes objectForKey:@"title9"]);
-        self.title10    = $safe([attributes objectForKey:@"title10"]);
-        self.src1       = $safe([attributes objectForKey:@"src1"]);
-        self.src2       = $safe([attributes objectForKey:@"src2"]);
-        self.src3       = $safe([attributes objectForKey:@"src3"]);
-        self.src4       = $safe([attributes objectForKey:@"src4"]);
-        self.src5       = $safe([attributes objectForKey:@"src5"]);
-        self.src6       = $safe([attributes objectForKey:@"src6"]);
-        self.src7       = $safe([attributes objectForKey:@"src7"]);
-        self.src8       = $safe([attributes objectForKey:@"src8"]);
-        self.src9       = $safe([attributes objectForKey:@"src9"]);
-        self.src10      = $safe([attributes objectForKey:@"src10"]);
-        self.doviewname = $safe([attributes objectForKey:@"doviewname"]);
+        self.evet       = $safe([dic objectForKey:@"evet"]);
+        self.target     = $safe([dic objectForKey:@"target"]);
+        self.refresh    = $safe([dic objectForKey:@"refresh"]);
+        self.layouttype = $safe([dic objectForKey:@"layouttype"]);
+        self.visible    = $safe([dic objectForKey:@"visible"]);
+        self.fkvalue    = $safe([dic objectForKey:@"fkvalue"]);
+        self.keyvalue   = $safe([dic objectForKey:@"keyvalue"]);
+        self.title1     = $safe([dic objectForKey:@"title1"]);
+        self.title2     = $safe([dic objectForKey:@"title2"]);
+        self.title3     = $safe([dic objectForKey:@"title3"]);
+        self.title4     = $safe([dic objectForKey:@"title4"]);
+        self.title5     = $safe([dic objectForKey:@"title5"]);
+        self.title6     = $safe([dic objectForKey:@"title6"]);
+        self.title7     = $safe([dic objectForKey:@"title7"]);
+        self.title8     = $safe([dic objectForKey:@"title8"]);
+        self.title9     = $safe([dic objectForKey:@"title9"]);
+        self.title10    = $safe([dic objectForKey:@"title10"]);
+        self.src1       = $safe([dic objectForKey:@"src1"]);
+        self.src2       = $safe([dic objectForKey:@"src2"]);
+        self.src3       = $safe([dic objectForKey:@"src3"]);
+        self.src4       = $safe([dic objectForKey:@"src4"]);
+        self.src5       = $safe([dic objectForKey:@"src5"]);
+        self.src6       = $safe([dic objectForKey:@"src6"]);
+        self.src7       = $safe([dic objectForKey:@"src7"]);
+        self.src8       = $safe([dic objectForKey:@"src8"]);
+        self.src9       = $safe([dic objectForKey:@"src9"]);
+        self.src10      = $safe([dic objectForKey:@"src10"]);
+        self.doviewname = $safe([dic objectForKey:@"doviewname"]);
     }
     return  self;
 }
@@ -90,3 +108,59 @@
 }
 
 @end
+
+@implementation MUser
+
+-(instancetype) initWithDic:(NSDictionary *)dic
+{
+    self = [super  init];
+    if(self && [dic isKindOfClass:[NSDictionary class]])
+    {
+        self.password       = $safe([dic objectForKey:@"password"]);
+        self.phoneNum     = $safe([dic objectForKey:@"phoneNum"]);
+        self.userID    = [$safe([dic objectForKey:@"userID"]) integerValue];
+        self.userName = $safe([dic objectForKey:@"userName"]);
+    }
+    return self;
+}
+
+-(id) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        self.password = [aDecoder decodeObjectForKey:@"password"];
+        self.phoneNum = [aDecoder decodeObjectForKey:@"phoneNum"];
+        self.userName = [aDecoder decodeObjectForKey:@"userName"];
+        self.userID = [aDecoder decodeIntegerForKey:@"userID"];
+    }
+    return self;
+}
+-(void )encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.userID forKey:@"userID"];
+    [aCoder encodeObject:self.password forKey:@"password"];
+    [aCoder encodeObject:self.phoneNum forKey:@"phoneNum"];
+    [aCoder encodeObject:self.userName forKey:@"userName"];
+}
+
++(MUser *)UserWithDic:(NSDictionary *)dic
+{
+    return [[MUser alloc] initWithDic:dic];
+}
+
+@end
+
+@implementation Response
+
++ (Response*)responseWithDict:(NSDictionary*)dict
+{
+    Response* response = [[Response alloc] init];
+    response.code = [[dict objectForKeyNotNull:@"success"] integerValue];
+    response.message = [dict objectForKeyNotNull:@"message"];
+    response.hasMore = [[dict objectForKeyNotNull:@"has_more"] boolValue];
+    return response;
+}
+
+@end
+

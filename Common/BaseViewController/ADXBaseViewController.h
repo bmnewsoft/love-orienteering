@@ -30,4 +30,9 @@
 - (IBAction)backAction:(id)sender;  //使用导航返回上一个视图
 - (void)showAlertWithTitle:(NSString*)title message:(NSString*)message;
 
+
+- (void)instantiateStoryBoard:(NSString *)storyBoardName; //实例化故事板
+
+
+
 @end

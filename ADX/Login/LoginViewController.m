@@ -10,6 +10,9 @@
 #import "APIClient.h"
 #import "NSString+Extensions.h"
 #import "NSString+URLEncoding.h"
+#import "BaseModel.h"
+#import "AppDelegate.h"
+#import "ADXUserDefault.h"
 
 @interface LoginViewController ()
 
@@ -91,8 +94,16 @@
     
     [[APIClient sharedClient] requestPath:LOGIN_URL parameters:paramet success:^(AFHTTPRequestOperation *operation, id JSON) {
         [self hideLoadingView];
-        NSInteger successCode =  [[JSON valueForKey:@"success"] integerValue];
-        NSString *message     =  [JSON valueForKey:@"message"];
+        if ([JSON objectForKey:@"success"])
+        {
+            [self showToast:[JSON objectForKey:@"message"]];
+        }
+        else
+        {
+            ShareAppDelegate.user = [MUser UserWithDic:(NSDictionary *)JSON];
+            [ADXUserDefault setInt:ShareAppDelegate.user.userID withKey:kUSERID];
+            [self instantiateStoryBoard:@"Main"];
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showNetworkNotAvailable];

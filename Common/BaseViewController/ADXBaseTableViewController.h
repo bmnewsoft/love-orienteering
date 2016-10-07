@@ -34,4 +34,6 @@
 - (void)showNetworkNotAvailable;
 -(void)showToash:(NSString *)message;
 
+- (void)instantiateStoryBoard:(NSString *)storyBoardName; //实例化故事板
+
 @end
