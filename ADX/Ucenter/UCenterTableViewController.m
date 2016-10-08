@@ -10,10 +10,22 @@
 #import "UCenterCell.h"
 
 #import "UInfoViewController.h"
+#import "UMatchTableViewController.h"
+#import "UCertificateTableViewController.h"
+#import "UMessageTableViewController.h"
+#import "USettingTableViewController.h"
 
-#define CELLTITLE @[@"我的信息",@"我的比赛",@"赛事证书",@"消息通知",@"设置"]
+#define CELLTITLE     @[@"我的信息",\
+                        @"我的比赛",\
+                        @"赛事证书",\
+                        @"消息通知",\
+                        @"设置"]
 
-#define VCIdentifier @[@"UInfoViewController"]
+#define VCIdentifier  @[@"UInfoViewController",\
+                        @"UMatchTableViewController",\
+                        @"UCertificateTableViewController",\
+                        @"UMessageTableViewController",\
+                        @"USettingTableViewController"]
 
 
 @interface UCenterTableViewController ()
@@ -21,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *uHeaderImage;
 
 @property (nonatomic,strong)NSMutableArray *datas;
+
+
 
 @end
 
@@ -62,14 +76,10 @@
 #pragma mark UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"测试 第 %zi组，第%zi行",indexPath.section,indexPath.row);
-    if(indexPath.row == 0)
-    {
-        UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"UCenter");
-        UInfoViewController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:VCIdentifier[indexPath.row]];
-        infoVc.title = @"我的信息";
-        [self.navigationController pushViewController:infoVc animated:YES];
-    }
+    UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"UCenter");
+    UInfoViewController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:VCIdentifier[indexPath.row]];
+    infoVc.title = CELLTITLE[indexPath.row];
+    [self.navigationController pushViewController:infoVc animated:YES];
 }
 /*
 #pragma mark - Navigation

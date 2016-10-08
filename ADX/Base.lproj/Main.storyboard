@@ -9,7 +9,7 @@
         <scene sceneID="jVU-eH-CDi">
             <objects>
                 <tabBarController id="cVc-Yp-ALB" customClass="TabBarController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg副本" id="2Nr-cK-VXF">
+                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg_all" id="2Nr-cK-VXF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-1271" y="275"/>
         </scene>
-        <!--首页-->
+        <!--Navigation Controller-->
         <scene sceneID="NfT-I7-aSD">
             <objects>
                 <navigationController id="vfL-yX-2pn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="bar_item_0" id="Ug6-uD-cq5"/>
+                    <tabBarItem key="tabBarItem" title="" id="Ug6-uD-cq5"/>
                     <navigationItem key="navigationItem" id="rsG-3f-dRg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="is1-Ri-X0c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -42,11 +42,11 @@
             </objects>
             <point key="canvasLocation" x="-794" y="-366"/>
         </scene>
-        <!--我的-->
+        <!--Navigation Controller-->
         <scene sceneID="gXq-Js-TdC">
             <objects>
                 <navigationController id="mfS-nk-vfP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="bar_item_2" id="xXU-fn-Psx"/>
+                    <tabBarItem key="tabBarItem" title="" id="xXU-fn-Psx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s9N-Bt-oKq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -63,7 +63,7 @@
         <scene sceneID="a7Z-QB-aSc">
             <objects>
                 <tableViewController id="HAg-H2-HgK" customClass="UCenterTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="gC3-wP-EwL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="gC3-wP-EwL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.89411764709999997" green="0.90588235289999997" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,17 +72,17 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headImage" id="PHF-dy-0LF">
-                                    <rect key="frame" x="116" y="8" width="92" height="92"/>
+                                    <rect key="frame" x="116" y="10" width="92" height="92"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_bg" id="uGe-lP-3yr">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称：丽萨酱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfH-My-Vt4">
-                                    <rect key="frame" x="8" y="107" width="304" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称：千翻儿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfH-My-Vt4">
+                                    <rect key="frame" x="8" y="110" width="304" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -90,11 +90,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UCenterCell" id="Gxg-ha-6UU" customClass="UCenterCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UCenterCell" id="Gxg-ha-6UU" customClass="UCenterCell">
                                 <rect key="frame" x="0.0" y="231" width="320" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gxg-ha-6UU" id="YpP-qO-yXO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UCell_bg" id="VU4-h0-pJR">
@@ -108,7 +108,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H8g-kD-8Cc">
                                             <rect key="frame" x="141" y="11" width="55" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.27705389261245728" green="0.36321866512298584" blue="0.55216288566589355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -174,11 +174,11 @@
             </objects>
             <point key="canvasLocation" x="-404" y="1654"/>
         </scene>
-        <!--go-->
+        <!--Navigation Controller-->
         <scene sceneID="uSl-UU-9c9">
             <objects>
                 <navigationController id="bxa-Ng-aQ8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="go" image="bar_item_1" id="Upt-Sx-AMU"/>
+                    <tabBarItem key="tabBarItem" title="" id="Upt-Sx-AMU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y2p-RN-nWr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -241,14 +241,14 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GPF-oh-Be4">
                                             <rect key="frame" x="18" y="224" width="280" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.31372549019607843" green="0.36078431372549019" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pQY-ds-Xa7">
                                             <rect key="frame" x="18" y="246" width="284" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -443,16 +443,13 @@
         <image name="QRCode_Scan" width="17" height="17"/>
         <image name="UCell_bg" width="320" height="62"/>
         <image name="app_bg" width="320" height="569"/>
-        <image name="bar_item_0" width="17" height="17"/>
-        <image name="bar_item_1" width="85" height="85"/>
-        <image name="bar_item_2" width="17" height="17"/>
         <image name="headImage" width="275" height="275"/>
         <image name="head_bg" width="375" height="163"/>
         <image name="index_bg" width="375" height="602"/>
         <image name="index_cell_bg" width="375" height="325"/>
         <image name="scanframe" width="244" height="244"/>
         <image name="scanline" width="220" height="5"/>
-        <image name="tabbar_bg副本" width="320" height="81"/>
+        <image name="tabbar_bg_all" width="320" height="82"/>
         <image name="task_cell_0" width="320" height="68"/>
         <image name="task_time" width="320" height="84"/>
         <image name="ucenter_0" width="15" height="15"/>

@@ -77,7 +77,7 @@
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _datas.count == 0 ? 0 : 10;
+    return _datas.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -88,7 +88,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     IndexCell *cell =[tableView dequeueReusableCellWithIdentifier:@"IndexCell"];
-    [cell setModel:_datas[0]];
+    [cell setModel:_datas[indexPath.row]];
     return cell;
 }
 

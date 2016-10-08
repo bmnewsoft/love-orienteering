@@ -35,6 +35,8 @@
 //获取数据
 #define DATA_URL            @"DoData"
 
+#define INFOCHANGE_URL      @"submitData"
+
 #pragma mark parameters
 
 #define pAPPCODE             @"appcode":@"A01"

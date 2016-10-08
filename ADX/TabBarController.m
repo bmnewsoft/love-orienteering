@@ -23,55 +23,55 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1)
-    {
-        [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tab_background"]];
-    }
-    
-    [UITabBar.appearance setSelectionIndicatorImage:[[UIImage alloc] init]];
-    
-    [UITabBarItem.appearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                     UIColorRGB(150, 150, 150), UITextAttributeTextColor,
-                                                     nil] forState:UIControlStateNormal];
-    [UITabBarItem.appearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                     UIColorRGB(10, 195, 197), UITextAttributeTextColor,
-                                                     nil] forState:UIControlStateSelected];
-    
-    
-    
-    UITabBarController *tabBarController = self;
-    UITabBar *tabBar = tabBarController.tabBar;
-    
-    int i = 0;
-    for (UITabBarItem *tabBarItem in tabBar.items)
-    {
-        NSString *imageName = [NSString stringWithFormat:@"item_icon%i", i];
-        NSString *selectedImageName = [NSString stringWithFormat:@"item_icon%i_h", i];
-        
-        
-        
-        //iOS7
-        if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)])
-        {
-            UIImage *image = [[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            UIImage *selectedImage = [[UIImage imageNamed:selectedImageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            
-            [tabBarItem setFinishedSelectedImage:selectedImage
-                     withFinishedUnselectedImage:image];
-            tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        }
-        else
-        {
-            UIImage *image = [UIImage imageNamed:imageName];
-            UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
-            
-            [tabBarItem setFinishedSelectedImage:selectedImage
-                     withFinishedUnselectedImage:image];
-        }
-        
-        i++;
-    }
+    self.tabBar.shadowImage = [UIImage new];
+//    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1)
+//    {
+//        [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tab_background"]];
+//    }
+//    
+//    [UITabBar.appearance setSelectionIndicatorImage:[[UIImage alloc] init]];
+//    
+//    [UITabBarItem.appearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                                     UIColorRGB(150, 150, 150), UITextAttributeTextColor,
+//                                                     nil] forState:UIControlStateNormal];
+//    [UITabBarItem.appearance setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                                     UIColorRGB(10, 195, 197), UITextAttributeTextColor,
+//                                                     nil] forState:UIControlStateSelected];
+//    
+//    
+//    
+//    UITabBarController *tabBarController = self;
+//    UITabBar *tabBar = tabBarController.tabBar;
+//    
+//    int i = 0;
+//    for (UITabBarItem *tabBarItem in tabBar.items)
+//    {
+//        NSString *imageName = [NSString stringWithFormat:@"item_icon%i", i];
+//        NSString *selectedImageName = [NSString stringWithFormat:@"item_icon%i_h", i];
+//        
+//        
+//        
+//        //iOS7
+//        if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)])
+//        {
+//            UIImage *image = [[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//            UIImage *selectedImage = [[UIImage imageNamed:selectedImageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//            
+//            [tabBarItem setFinishedSelectedImage:selectedImage
+//                     withFinishedUnselectedImage:image];
+//            tabBarItem.selectedImage = [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        }
+//        else
+//        {
+//            UIImage *image = [UIImage imageNamed:imageName];
+//            UIImage *selectedImage = [UIImage imageNamed:selectedImageName];
+//            
+//            [tabBarItem setFinishedSelectedImage:selectedImage
+//                     withFinishedUnselectedImage:image];
+//        }
+//        
+//        i++;
+//    }
 }
 /*
 #pragma mark - Navigation

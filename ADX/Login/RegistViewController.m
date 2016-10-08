@@ -30,7 +30,7 @@ static int myTime;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setBackButton];
+//    [self setBackButton];
     self.sendCodeLable.layer.cornerRadius = 5;
     self.sendCodeLable.layer.masksToBounds = YES;
 #ifdef DEBUG

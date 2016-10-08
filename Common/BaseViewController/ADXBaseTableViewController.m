@@ -42,7 +42,7 @@
         return;
     }
     
-    UIImage *backImage = [UIImage imageNamed:@"navi_back"];
+    UIImage *backImage = [UIImage imageNamed:@"navi_back_1"];
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(0, 0, 44, 44);
     
