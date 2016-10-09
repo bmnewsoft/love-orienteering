@@ -8,6 +8,7 @@
 
 #import "UCenterTableViewController.h"
 #import "UCenterCell.h"
+#import "UIImageView+WebCache.h"
 
 #import "UInfoViewController.h"
 #import "UMatchTableViewController.h"
@@ -31,6 +32,10 @@
 @interface UCenterTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *uHeaderImage;
+@property (weak, nonatomic) IBOutlet UILabel *nikenameLabel;
+
+@property (nonatomic,strong)NSString *headerUrl;
+@property (nonatomic,strong)NSString *nikenameStr;
 
 @property (nonatomic,strong)NSMutableArray *datas;
 
@@ -43,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setBaseParameters];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +58,46 @@
 -(void)setBaseParameters
 {
     _datas = [NSMutableArray arrayWithCapacity:1];
+}
+
+-(void)loadData
+{
+    [self showLoadingView];
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    if (userId == FAILED_CODE)
+    {
+        [self instantiateStoryBoard:@"Login"];
+    }
+    NSDictionary * parameter = @{pAPPCODE,
+                                 pGROUPCODE:@"A01_P9_G3",
+                                 pKEYVALUE:@"",
+                                 pUSERID:[NSNumber numberWithInteger:userId]
+                                 };
+    [[APIClient sharedClient] requestPath:DATA_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self hideLoadingView];
+        Response *response = [Response responseWithDict:JSON];
+        if (response.code == FAILED_CODE)
+        {
+            [self showToast:response.message];
+        }
+        else
+        {
+            NSArray *items = [JSON valueForKey:@"items"];
+            BaseModel *model = [[BaseModel alloc] initWithDic:items[0]];
+            [self setNikenameAndHeadImg:model];
+            [_datas addObject:model];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        [self hideLoadingView];
+        [self showNetworkNotAvailable];
+    }];
+}
+
+-(void)setNikenameAndHeadImg:(BaseModel *)model
+{
+    [_uHeaderImage sd_setImageWithURL:[NSURL URLWithString:model.src1] placeholderImage:[UIImage imageNamed:@"headImage"]];
+    _nikenameLabel.text = [NSString stringWithFormat:@"昵称：%@",model.title1];
 }
 
 
@@ -77,8 +123,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"UCenter");
-    UInfoViewController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:VCIdentifier[indexPath.row]];
+    UIViewController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:VCIdentifier[indexPath.row]];
     infoVc.title = CELLTITLE[indexPath.row];
+    if ([VCIdentifier[indexPath.row] isEqualToString:@"UInfoViewController"])
+    {
+        UInfoViewController *info = (UInfoViewController *)infoVc;
+        _datas.count > 0 ?info.model=_datas[0]:nil ;
+    }
     [self.navigationController pushViewController:infoVc animated:YES];
 }
 /*

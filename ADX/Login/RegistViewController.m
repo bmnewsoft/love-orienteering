@@ -163,7 +163,7 @@ static int myTime;
                                         @"password":password,
                                         @"phone":mobile}
                              };
-    [[APIClient sharedClient] requestPath:REGIST_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+    [[APIClient sharedClient] requestPath:USER_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
         [self showToast:[JSON valueForKey:@"message"]];
         [self hideLoadingView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

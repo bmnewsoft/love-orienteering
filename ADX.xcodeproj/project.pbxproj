@@ -13,6 +13,10 @@
 		69252F9C1DA4DE96005EE2E5 /* IndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252F9B1DA4DE96005EE2E5 /* IndexCell.m */; };
 		69252F9E1DA4F8D1005EE2E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69252F9D1DA4F8D1005EE2E5 /* Default-568h@2x.png */; };
 		69252FA11DA5DF52005EE2E5 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */; };
+		69567A7C1DAA81DE0080CAC1 /* URePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A7B1DAA81DE0080CAC1 /* URePasswordViewController.m */; };
+		69567A7F1DAA8D380080CAC1 /* UNewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A7E1DAA8D380080CAC1 /* UNewPasswordViewController.m */; };
+		69567A821DAAA3270080CAC1 /* UFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A811DAAA3270080CAC1 /* UFeedBackViewController.m */; };
+		69567A851DAAACEA0080CAC1 /* UAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A841DAAACEA0080CAC1 /* UAboutViewController.m */; };
 		6985A1881DA62E2B00F1FB69 /* task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6985A1871DA62E2B00F1FB69 /* task.storyboard */; };
 		6985A18C1DA6597600F1FB69 /* TaskIngViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */; };
 		6985A1901DA659F000F1FB69 /* TaskIngCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985A18F1DA659F000F1FB69 /* TaskIngCell.m */; };
@@ -125,6 +129,14 @@
 		69252F9D1DA4F8D1005EE2E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		69252F9F1DA5DF52005EE2E5 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
 		69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		69567A7A1DAA81DE0080CAC1 /* URePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URePasswordViewController.h; sourceTree = "<group>"; };
+		69567A7B1DAA81DE0080CAC1 /* URePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URePasswordViewController.m; sourceTree = "<group>"; };
+		69567A7D1DAA8D380080CAC1 /* UNewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNewPasswordViewController.h; sourceTree = "<group>"; };
+		69567A7E1DAA8D380080CAC1 /* UNewPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNewPasswordViewController.m; sourceTree = "<group>"; };
+		69567A801DAAA3270080CAC1 /* UFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFeedBackViewController.h; sourceTree = "<group>"; };
+		69567A811DAAA3270080CAC1 /* UFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFeedBackViewController.m; sourceTree = "<group>"; };
+		69567A831DAAACEA0080CAC1 /* UAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAboutViewController.h; sourceTree = "<group>"; };
+		69567A841DAAACEA0080CAC1 /* UAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAboutViewController.m; sourceTree = "<group>"; };
 		6985A1871DA62E2B00F1FB69 /* task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = task.storyboard; sourceTree = "<group>"; };
 		6985A18A1DA6597600F1FB69 /* TaskIngViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskIngViewController.h; sourceTree = "<group>"; };
 		6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskIngViewController.m; sourceTree = "<group>"; };
@@ -393,6 +405,14 @@
 				698E9A6A1DA9545B0003C4D4 /* UMessageTableViewController.m */,
 				698E9A721DA958E80003C4D4 /* USettingTableViewController.h */,
 				698E9A731DA958E80003C4D4 /* USettingTableViewController.m */,
+				69567A7A1DAA81DE0080CAC1 /* URePasswordViewController.h */,
+				69567A7B1DAA81DE0080CAC1 /* URePasswordViewController.m */,
+				69567A7D1DAA8D380080CAC1 /* UNewPasswordViewController.h */,
+				69567A7E1DAA8D380080CAC1 /* UNewPasswordViewController.m */,
+				69567A801DAAA3270080CAC1 /* UFeedBackViewController.h */,
+				69567A811DAAA3270080CAC1 /* UFeedBackViewController.m */,
+				69567A831DAAACEA0080CAC1 /* UAboutViewController.h */,
+				69567A841DAAACEA0080CAC1 /* UAboutViewController.m */,
 			);
 			path = Ucenter;
 			sourceTree = "<group>";
@@ -856,6 +876,7 @@
 				6985A18C1DA6597600F1FB69 /* TaskIngViewController.m in Sources */,
 				698E9A6B1DA9545B0003C4D4 /* UMessageTableViewController.m in Sources */,
 				69A418091D9F53C9006E4E58 /* SDWebImagePrefetcher.m in Sources */,
+				69567A851DAAACEA0080CAC1 /* UAboutViewController.m in Sources */,
 				6985A1941DA7452C00F1FB69 /* ADXCache.m in Sources */,
 				69A4176B1D9F47B3006E4E58 /* ViewController.m in Sources */,
 				69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -886,6 +907,7 @@
 				6985A1971DA752BC00F1FB69 /* ADXUserDefault.m in Sources */,
 				698E9A571DA8BCCE0003C4D4 /* IQToolbar.m in Sources */,
 				69A417F61D9F53C9006E4E58 /* UIImage+resize.m in Sources */,
+				69567A7F1DAA8D380080CAC1 /* UNewPasswordViewController.m in Sources */,
 				69A417F11D9F53C9006E4E58 /* NSString+AES.m in Sources */,
 				69A417EB1D9F53C9006E4E58 /* AFURLConnectionOperation.m in Sources */,
 				69A4180B1D9F53C9006E4E58 /* UIImage+GIF.m in Sources */,
@@ -907,6 +929,7 @@
 				698E9A561DA8BCCE0003C4D4 /* IQTitleBarButtonItem.m in Sources */,
 				69B4738F1DA0FA440079D7B7 /* LoginViewController.m in Sources */,
 				69B473921DA1189F0079D7B7 /* RegistViewController.m in Sources */,
+				69567A821DAAA3270080CAC1 /* UFeedBackViewController.m in Sources */,
 				69A418061D9F53C9006E4E58 /* SDWebImageDownloader.m in Sources */,
 				69B473791DA0AB880079D7B7 /* EGORefreshTableHeaderView.m in Sources */,
 				69A4180D1D9F53C9006E4E58 /* UIImage+WebP.m in Sources */,
@@ -933,6 +956,7 @@
 				69B473891DA0F1670079D7B7 /* APIClient.m in Sources */,
 				698E9A541DA8BCCE0003C4D4 /* IQBarButtonItem.m in Sources */,
 				69A417FA1D9F53C9006E4E58 /* MJRefreshBaseView.m in Sources */,
+				69567A7C1DAA81DE0080CAC1 /* URePasswordViewController.m in Sources */,
 				69B473A01DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				69A417FC1D9F53C9006E4E58 /* MJRefreshFooterView.m in Sources */,
 				69A417F31D9F53C9006E4E58 /* NSString+URLEncoding.m in Sources */,

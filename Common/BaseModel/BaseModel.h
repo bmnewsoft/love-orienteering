@@ -56,6 +56,7 @@
 @property (nonatomic) NSInteger code;
 @property (nonatomic, strong) NSString* message;
 @property (nonatomic) BOOL hasMore;
+@property (nonatomic) NSString *keyvalue;
 
 + (Response*)responseWithDict:(NSDictionary*)dict;
 

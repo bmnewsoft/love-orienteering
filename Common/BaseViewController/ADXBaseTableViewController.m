@@ -22,7 +22,7 @@
 
 @implementation ADXBaseTableViewController
 
--(void)showToash:(NSString *)message
+-(void)showToast:(NSString *)message
 {
     [ShareAppDelegate.window makeToast:message duration:1.0 position:@"center"];
 }
@@ -164,7 +164,7 @@
 
 - (void)showNetworkNotAvailable
 {
-    [self showToash:@"网络连接失败，请检查网络稍后重试"];
+    [self showToast:@"网络连接失败，请检查网络稍后重试"];
 }
 #pragma mark - MBProgressHUD
 

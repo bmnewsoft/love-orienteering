@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UCertificateCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *CImageView;
+@property (weak, nonatomic) IBOutlet UILabel *CtitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *CDetailLabel;
 
 @end

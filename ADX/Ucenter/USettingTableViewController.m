@@ -10,6 +10,8 @@
 
 #import "USettingCell.h"
 
+#import "ADXUserDefault.h"
+
 
 #define CELLTITLE     @[@"修改密码",\
                         @"吐槽产品",\
@@ -45,13 +47,18 @@
     return 1;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    USettingCell *cell =[tableView dequeueReusableCellWithIdentifier:@"USettingCell"];
+//    cell.titleLabel.text = CELLTITLE[indexPath.row];
+//    return cell;
+//}
+
+#pragma mark Button Action
+- (IBAction)LoginOutAction:(UIButton *)sender
 {
-    USettingCell *cell =[tableView dequeueReusableCellWithIdentifier:@"USettingCell"];
-    cell.titleLabel.text = CELLTITLE[indexPath.row];
-    return cell;
-}
-- (IBAction)LoginOutAction:(UIButton *)sender {
+    [ADXUserDefault setInt:FAILED_CODE withKey:kUSERID];
+    [self instantiateStoryBoard:@"Login"];
 }
 
 

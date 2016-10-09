@@ -7,11 +7,14 @@
 //
 
 #import "ADXBaseViewController.h"
+#import "BaseModel.h"
 
 @interface UInfoViewController : ADXBaseViewController
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 @property (weak, nonatomic) IBOutlet UITextField *sexTF;
 @property (weak, nonatomic) IBOutlet UITextField *ageTF;
 @property (weak, nonatomic) IBOutlet UITextField *IdentityIdTF;
+
+@property (nonatomic,strong)BaseModel *model;
 
 @end

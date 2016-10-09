@@ -159,6 +159,7 @@
     response.code = [[dict objectForKeyNotNull:@"success"] integerValue];
     response.message = [dict objectForKeyNotNull:@"message"];
     response.hasMore = [[dict objectForKeyNotNull:@"has_more"] boolValue];
+    response.keyvalue = [dict objectForKey:@"keyvalue"];
     return response;
 }
 

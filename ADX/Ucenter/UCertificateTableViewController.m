@@ -10,7 +10,11 @@
 
 #import "UCertificateCell.h"
 
+#import "BaseModel.h"
+
 @interface UCertificateTableViewController ()
+
+@property(nonatomic,strong)NSMutableArray *datas;
 
 @end
 
@@ -18,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBaseParameters];
+    
+    [self LoadDate];
     // Do any additional setup after loading the view.
 }
 
@@ -27,10 +34,52 @@
 }
 
 
+-(void)setBaseParameters
+{
+    self.title = @"我的证书";
+    self.datas = [NSMutableArray arrayWithCapacity:1];
+}
+
+
+-(void)LoadDate
+{
+    [self showLoadingView];
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    if (userId == FAILED_CODE)
+    {
+        [self instantiateStoryBoard:@"Login"];
+    }
+    
+    NSDictionary *parameter = @{pAPPCODE,
+                                pGROUPCODE:@"A01_P9_G1",
+                                pKEYVALUE:@"",
+                                pUSERID:[NSNumber numberWithInteger:userId]};
+    
+    
+    [[APIClient sharedClient] requestPath:DATA_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self hideLoadingView];
+        Response *response = [Response responseWithDict:JSON];
+        if (response.code == FAILED_CODE)
+        {
+            [self showToast:response.message];
+        }
+        else if(response.code == SUCCESS_CODE)
+        {
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+        [self showNetworkNotAvailable];
+    }];
+}
+
+
+
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _datas.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -41,8 +90,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UCertificateCell *cell =[tableView dequeueReusableCellWithIdentifier:@"UCertificateCell"];
+    
     return cell;
 }
+
 //#pragma mark UITableViewDelegate
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //{

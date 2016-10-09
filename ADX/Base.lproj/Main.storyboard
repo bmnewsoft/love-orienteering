@@ -79,7 +79,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称：千翻儿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfH-My-Vt4">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称：加载中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfH-My-Vt4">
                                     <rect key="frame" x="8" y="110" width="304" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -127,6 +127,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="我的" id="CIe-Xx-ADr"/>
                     <connections>
+                        <outlet property="nikenameLabel" destination="zfH-My-Vt4" id="yZ0-Yw-Qab"/>
                         <outlet property="uHeaderImage" destination="PHF-dy-0LF" id="0V3-wL-m6W"/>
                     </connections>
                 </tableViewController>

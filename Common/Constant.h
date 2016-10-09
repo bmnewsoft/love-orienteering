@@ -13,6 +13,8 @@
 
 #define FAILED_CODE         -1
 
+#define SUCCESS_CODE        1
+
 //服务器地址
 #ifdef DEBUG
 #define SERVER_URL          @"http://wx.wispark.cn/QSServer/"
@@ -27,7 +29,7 @@
 #define SMS_URL             @"sms"
 
 //注册
-#define REGIST_URL          @"user"
+#define USER_URL          @"user"
 
 //加密
 #define DIGEST_URL          @"digest"
@@ -35,7 +37,7 @@
 //获取数据
 #define DATA_URL            @"DoData"
 
-#define INFOCHANGE_URL      @"submitData"
+#define SUBMIT_URL      @"submitData"
 
 #pragma mark parameters
 

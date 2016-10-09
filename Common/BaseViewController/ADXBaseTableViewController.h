@@ -32,7 +32,7 @@
 - (void)showLoadingViewWithMessage:(NSString *)message; //显示加载视图，带提示消息
 - (void)hideLoadingView;        //隐藏加载视图
 - (void)showNetworkNotAvailable;
--(void)showToash:(NSString *)message;
+-(void)showToast:(NSString *)message;
 
 - (void)instantiateStoryBoard:(NSString *)storyBoardName; //实例化故事板
 

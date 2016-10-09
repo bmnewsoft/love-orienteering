@@ -55,7 +55,7 @@
         NSArray *items = [JSON objectForKey:@"items"];
         Response *response = [Response responseWithDict:JSON];
         if (response.code == FAILED_CODE) {
-            [self showToash:response.message];
+            [self showToast:response.message];
         }
         else
         {
