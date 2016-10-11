@@ -8,6 +8,12 @@
 
 #import "FindPasswordViewController.h"
 
+#import "APIClient.h"
+#import "NSString+Extensions.h"
+#import "AppDelegate.h"
+#import "BaseModel.h"
+#import "ADXUserDefault.h"
+
 @interface FindPasswordViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *mobileField;
@@ -18,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendCodeButton;
 @property (weak, nonatomic) IBOutlet UILabel *sendCodeLable;
 
+@property (nonatomic ,strong)NSString *smsCode;
+@property (nonatomic,assign)BOOL isSendSms;
 @property (strong,nonatomic) NSTimer * timer;
 
 @end
@@ -83,6 +91,50 @@ static int myTime;
         [self showToast:@"手机号不能为空"];
         return;
     }
+    
+    if (mobile.length <= 0)
+    {
+        [self showToast:@"手机号不能为空"];
+        return;
+    }
+    
+    if (![mobile isMobileNumber])
+    {
+        [self showToast:@"请输入正确的手机号"];
+        return;
+    }
+    
+    NSDictionary * parameter = @{@"jsons":[NSString stringWithFormat:@"{\"minu\": \"5\",\"n\": 4,\"phone\": \"%@\",\"version\": \"43242\"}",mobile]
+                                 };
+    _isSendSms = NO;
+    [[APIClient sharedClient] requestPath:SMS_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON)
+     {
+         [self hideLoadingView];
+         self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeButtonName) userInfo:nil repeats:YES];
+         self.sendCodeButton.enabled = NO;
+         self.sendCodeLable.backgroundColor = [UIColor grayColor];
+         self.sendCodeLable.text = @"60秒后重新获取";
+         myTime = 60;
+         if ([[JSON objectForKey:@"success"] integerValue] != SUCCESS_CODE)
+         {
+             self.sendCodeLable.text = @"验证码获取失败";
+             myTime = 1;
+             [self showToast:@"验证码获取失败"];
+         }
+         else
+         {
+             self.smsCode = [JSON valueForKey:@"keyvalue"];
+             _isSendSms = YES;
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         self.sendCodeButton.enabled = NO;
+         self.sendCodeLable.backgroundColor = [UIColor grayColor];
+         self.sendCodeLable.text = @"验证码获取失败";
+         myTime = 1;
+         [self hideLoadingView];
+         [self showNetworkNotAvailable];
+         
+     }];
 }
 
 - (IBAction)userFindPassword:(UIButton *)sender {
@@ -97,20 +149,43 @@ static int myTime;
         [self showToast:@"手机号不能为空"];
         return;
     }
-    if (password.length <= 0)
+    else if (password.length <= 0)
     {
         [self showToast:@"密码不能为空"];
         return;
     }
-    if (verifyCode.length <= 0)
+    else if (!_isSendSms)
+    {
+        [self showToast:@"请获取验证码"];
+        return;
+    }
+    else if (verifyCode.length <= 0)
     {
         [self showToast:@"验证码不能为空"];
         return;
     }
-    if (![password isEqualToString:rePassword]) {
+    else if (![password isEqualToString:rePassword]) {
         [self showToast:@"两次输入密码不一致"];
         return;
     }
+    
+    password = [APIClient digestPassword:password];
+    NSDictionary * parameter = @{@"jsons":[NSString stringWithFormat:@"{\"code\": \"%@\",\"opty\": \"updatapwd\",\"phone\": \"%@\",\"password\": \"%@\"}",verifyCode,mobile,password]
+                                 };
+    [[APIClient sharedClient] requestPath:USER_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self hideLoadingView];
+        if([[JSON objectForKey:@"success"] integerValue] != SUCCESS_CODE)
+        {
+            [self showToast:[JSON valueForKey:@"message"]];
+        }
+        else
+        {
+            [ADXUserDefault setInt:[[JSON valueForKey:@"keyvalue"] integerValue] withKey:kUSERID];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+    }];
 }
 
 - (IBAction)endEditing:(UITextField *)sender {

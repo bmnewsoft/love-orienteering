@@ -76,7 +76,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.61568627450000002" green="0.58823529409999997" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                         <connections>
                                             <action selector="endEditAction:" destination="Buu-bd-pRa" eventType="editingDidEndOnExit" id="CtW-Du-Fqy"/>
                                             <outlet property="delegate" destination="Buu-bd-pRa" id="Bsc-Ex-I1D"/>

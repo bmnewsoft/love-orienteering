@@ -7,6 +7,7 @@
 //
 
 #import "USettingTableViewController.h"
+#import "ADXCache.h"
 
 #import "USettingCell.h"
 
@@ -58,6 +59,7 @@
 - (IBAction)LoginOutAction:(UIButton *)sender
 {
     [ADXUserDefault setInt:FAILED_CODE withKey:kUSERID];
+    [ADXCache removeObjectForName:fUserCache];
     [self instantiateStoryBoard:@"Login"];
 }
 

@@ -81,7 +81,7 @@
     _nameTF.text                     = model.title2;
     _sexTF.text                      = model.title3;
     _sexSegment.selectedSegmentIndex = [model.title3 integerValue] - 1;
-    _ageTF.text                      = [NSString stringWithFormat:@"%@",model.title4];
+    _ageTF.text                      = model.title1 == nil || model.title1.length < 1 ? @"" :[NSString stringWithFormat:@"%@",model.title4];
     _IdentityIdTF.text               = model.title5;
     
 }
@@ -108,6 +108,7 @@
         {
             [self showToast:response.message];
             [self backAction:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:nRELOADUSERCENTER object:nil];
         }
         else
         {

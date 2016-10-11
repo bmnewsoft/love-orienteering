@@ -69,14 +69,24 @@ static NSString * const APIBaseURLString = SERVER_URL;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:strURL]];
     
-    NSError *error =nil;
+    NSError *error = nil;
     
     //同步方式连接服务器
     
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if (error != nil)
+    {
+        return @"-1";
+    }
     
     //json 解析返回数据
-    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    error = nil;
+    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    if (error != nil)
+    {
+        return @"-1";
+    }
     
     if (resultDic != NULL)
     {

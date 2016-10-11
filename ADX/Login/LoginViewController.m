@@ -33,8 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 #ifdef DEBUG
-    _userNameTextField.text = @"18686607249";
-    _passwordTextField.text = @"123";
+    _userNameTextField.text = @"18523633632";
+    _passwordTextField.text = @"123123";
 #endif
     
     // Do any additional setup after loading the view.
@@ -65,7 +65,6 @@
 
 - (IBAction)loginAction:(id)sender
 {
-    [self showLoadingView];
     if (self.userNameTextField.text.length<= 0)
     {
         [self showToast:@"手机号不能为空"];
@@ -82,7 +81,9 @@
         [self showToast:@"请输入正确的手机号"];
         return;
     }
-    
+    [self showLoadingView];
+    UIButton *button = (UIButton *)sender;
+    button.enabled = NO;
     NSString *password = [APIClient digestPassword:self.passwordTextField.text];
     
     NSDictionary *paramet = @{@"appcode":@"A01",
@@ -94,6 +95,7 @@
     
     [[APIClient sharedClient] requestPath:LOGIN_URL parameters:paramet success:^(AFHTTPRequestOperation *operation, id JSON) {
         [self hideLoadingView];
+        button.enabled = YES;
         if ([JSON objectForKey:@"success"])
         {
             [self showToast:[JSON objectForKey:@"message"]];
@@ -106,6 +108,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        button.enabled = YES;
         [self showNetworkNotAvailable];
         [self hideLoadingView];
     }];

@@ -58,4 +58,8 @@
 
 #define kUSERID             @"KUserId"
 
+#pragma makr Notification
+
+#define nRELOADUSERCENTER   @"N_reload_user_center"
+
 #endif /* Constant_h */

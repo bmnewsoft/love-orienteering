@@ -8,6 +8,7 @@
 
 #import "URePasswordViewController.h"
 #import "BaseModel.h"
+#import "AppDelegate.h"
 #import "UNewPasswordViewController.h"
 
 #import "NSString+Extensions.h"
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendCodeBt;
 
 @property (nonatomic,strong)NSString *smsCode;
+@property (nonatomic,strong)NSString *userPhoneNum;
 
 
 @property (strong,nonatomic) NSTimer * timer;
@@ -29,9 +31,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-#ifdef DEBUG
-    _mobileTF.text = @"18523633632";
-#endif
+     self.userPhoneNum = ShareAppDelegate.user.phoneNum;
+    if (self.userPhoneNum != nil && self.userPhoneNum.length == 11)
+    {
+        NSRange range = {3,4};
+        _mobileTF.text = [self.userPhoneNum stringByReplacingCharactersInRange:range withString:@"****"];
+        _mobileTF.enabled = NO;
+    }
+//    _mobileTF.text = @"18523633632";
     [self setBaseParameters];
 }
 
@@ -77,23 +84,13 @@ static int myTime;
 {
     [self.view endEditing:YES];
     
-    //取出手机号，并且去掉首尾的空格和回车
-    NSString *mobile  = [self.mobileTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    
-    if (mobile.length <= 0)
+    if (self.userPhoneNum.length <= 0 || ![self.userPhoneNum isMobileNumber])
     {
-        [self showToast:@"手机号不能为空"];
+        [self instantiateStoryBoard:@"Login"];
         return;
     }
     
-    if (![mobile isMobileNumber])
-    {
-        [self showToast:@"请输入正确的手机号"];
-        return;
-    }
-    
-    NSDictionary * parameter = @{@"jsons":[NSString stringWithFormat:@"{\"minu\": \"5\",\"n\": 4,\"phone\": \"%@\",\"version\": \"43242\"}",mobile]
+    NSDictionary * parameter = @{@"jsons":[NSString stringWithFormat:@"{\"minu\": \"5\",\"n\": 4,\"phone\": \"%@\",\"version\": \"43242\"}",self.userPhoneNum]
                                  };
     self.sendCodeBt.enabled = NO;
     [[APIClient sharedClient] requestPath:SMS_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON)
