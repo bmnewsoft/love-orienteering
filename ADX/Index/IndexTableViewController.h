@@ -10,4 +10,6 @@
 
 @interface IndexTableViewController : ADXBaseTableViewController
 
+- (void)loadData;
+
 @end

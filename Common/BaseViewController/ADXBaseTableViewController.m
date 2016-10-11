@@ -137,6 +137,21 @@
     
     [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     
+    [self setDefaultBackGroundImage];
+    
+}
+- (void) setDefaultBackGroundImage
+{
+    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
+    UIImage * image = [UIImage imageNamed:@"app_bg"];
+    _bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width + 16, size.height)];
+    _bgImageView.image = image;
+    _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+//    self.tableView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"app_bg"]];
+    self.tableView.backgroundView = _bgImageView;
+
+//    [self.view addSubview:_bgImageView];
+//    [self.view sendSubviewToBack:_bgImageView];
 }
 
 - (void)loadData

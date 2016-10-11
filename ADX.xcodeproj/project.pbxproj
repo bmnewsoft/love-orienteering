@@ -115,6 +115,7 @@
 		69B473A11DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739C1DA11EB60079D7B7 /* TPKeyboardAvoidingTableView.m */; };
 		69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		69B473A51DA39D390079D7B7 /* ADXAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473A41DA39D390079D7B7 /* ADXAppearance.m */; };
+		69C02B561DAD3E17000C15E5 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C02B551DAD3E17000C15E5 /* TaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -334,6 +335,8 @@
 		69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		69B473A31DA39D390079D7B7 /* ADXAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADXAppearance.h; sourceTree = "<group>"; };
 		69B473A41DA39D390079D7B7 /* ADXAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADXAppearance.m; sourceTree = "<group>"; };
+		69C02B541DAD3E17000C15E5 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		69C02B551DAD3E17000C15E5 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +387,8 @@
 				6985A1871DA62E2B00F1FB69 /* task.storyboard */,
 				6985A18A1DA6597600F1FB69 /* TaskIngViewController.h */,
 				6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */,
+				69C02B541DAD3E17000C15E5 /* TaskViewController.h */,
+				69C02B551DAD3E17000C15E5 /* TaskViewController.m */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -926,6 +931,7 @@
 				698E9A4F1DA8BCCE0003C4D4 /* IQUIViewController+Additions.m in Sources */,
 				69A4180A1D9F53C9006E4E58 /* UIButton+WebCache.m in Sources */,
 				698E9A581DA8BCCE0003C4D4 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				69C02B561DAD3E17000C15E5 /* TaskViewController.m in Sources */,
 				698E9A561DA8BCCE0003C4D4 /* IQTitleBarButtonItem.m in Sources */,
 				69B4738F1DA0FA440079D7B7 /* LoginViewController.m in Sources */,
 				69B473921DA1189F0079D7B7 /* RegistViewController.m in Sources */,
@@ -1010,7 +1016,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Meng Li (86BT585C9P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Meng Li (86BT585C9P)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1032,6 +1039,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "fbf17937-75f9-4baf-b1ad-0b7e1e40b0a4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1053,7 +1061,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Meng Li (86BT585C9P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Meng Li (86BT585C9P)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1068,6 +1077,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "fbf17937-75f9-4baf-b1ad-0b7e1e40b0a4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1082,7 +1092,7 @@
 				INSTALL_OWNER = MDJ;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ADX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1096,7 +1106,7 @@
 				INSTALL_OWNER = MDJ;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ADX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mlc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

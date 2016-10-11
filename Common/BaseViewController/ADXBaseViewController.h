@@ -13,6 +13,9 @@
 
 @interface ADXBaseViewController : UIViewController
 
+@property (nonatomic,strong)UIImageView *bgImageView;
+
+
 - (void)setRightButton:(id)target action:(SEL)action title:(NSString *)title;
 - (void )setRightButton:(id)target action:(SEL)action icon:(NSString *)icon;
 - (void)setLeftButton:(NSString *)title;

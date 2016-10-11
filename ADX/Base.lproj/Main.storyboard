@@ -83,7 +83,7 @@
                                     <rect key="frame" x="8" y="110" width="304" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -195,19 +195,67 @@
         <!--GO-->
         <scene sceneID="Htw-wO-8iI">
             <objects>
-                <viewController title="GO" id="UYr-1t-Xjo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskViewController" title="GO" id="UYr-1t-Xjo" customClass="TaskViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MJs-TK-8bg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="index_bg" id="hpv-Xg-rlB">
-                                <rect key="frame" x="-4" y="64" width="328" height="504"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ngy-07-vi8">
+                                <rect key="frame" x="20" y="390" width="89" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="Button" image="go_buttom1"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xvg-sc-jeW">
+                                <rect key="frame" x="116" y="390" width="89" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="go_buttom2"/>
+                                <connections>
+                                    <segue destination="QE0-56-raS" kind="push" id="Ozs-TU-lEJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Qp-D2-7bN">
+                                <rect key="frame" x="213" y="390" width="89" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="go_buttom3"/>
+                                <connections>
+                                    <segue destination="YiW-XB-8ib" kind="push" id="Xmt-ix-NH2"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="FWk-Jg-qcW">
+                                <rect key="frame" x="0.0" y="450" width="320" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go_buttom" id="2LE-mU-kZT">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BgK-Lm-IQm">
+                                        <rect key="frame" x="124" y="0.0" width="73" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="popButtomAction:" destination="UYr-1t-Xjo" eventType="touchUpInside" id="561-Z5-cCP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="GO" id="F2d-Aq-ZsR"/>
+                    <navigationItem key="navigationItem" title="爱定向" id="F2d-Aq-ZsR">
+                        <barButtonItem key="leftBarButtonItem" title="任务书" id="qEg-NP-72e">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="QE0-56-raS" kind="push" id="vd3-W0-zeu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="QRCode_Scan" id="oBh-5g-w7r">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="YiW-XB-8ib" kind="push" id="QK9-Yk-jFy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsf-Ne-OEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,7 +343,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="QE0-56-raS" customClass="TaskIngViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TKS-mQ-b4a">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="2u4-Qo-Qjb">
@@ -408,14 +456,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keR-lp-anq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="-366"/>
+            <point key="canvasLocation" x="464" y="-1158"/>
         </scene>
         <!--扫一扫-->
         <scene sceneID="Puy-q5-I33">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="YiW-XB-8ib" customClass="QRCodeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3t6-zd-ymI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanframe" id="VNq-xk-eUM">
@@ -437,16 +485,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frx-4X-UrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="-366"/>
+            <point key="canvasLocation" x="68" y="-1158"/>
         </scene>
     </scenes>
     <resources>
         <image name="QRCode_Scan" width="17" height="17"/>
         <image name="UCell_bg" width="320" height="62"/>
         <image name="app_bg" width="320" height="569"/>
+        <image name="go_buttom" width="320" height="49"/>
+        <image name="go_buttom1" width="89" height="34"/>
+        <image name="go_buttom2" width="89" height="34"/>
+        <image name="go_buttom3" width="89" height="34"/>
         <image name="headImage" width="275" height="275"/>
         <image name="head_bg" width="375" height="163"/>
-        <image name="index_bg" width="375" height="602"/>
         <image name="index_cell_bg" width="375" height="325"/>
         <image name="scanframe" width="244" height="244"/>
         <image name="scanline" width="220" height="5"/>
@@ -455,4 +506,8 @@
         <image name="task_time" width="320" height="84"/>
         <image name="ucenter_0" width="15" height="15"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vd3-W0-zeu"/>
+        <segue reference="QK9-Yk-jFy"/>
+    </inferredMetricsTieBreakers>
 </document>

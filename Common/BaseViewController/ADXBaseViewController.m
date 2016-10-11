@@ -193,6 +193,18 @@
     {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
+    [self setDefaultBackGroundImage];
+    
+}
+- (void) setDefaultBackGroundImage
+{
+    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
+    UIImage * image = [UIImage imageNamed:@"app_bg"];
+    _bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    _bgImageView.image = image;
+    _bgImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:_bgImageView];
+    [self.view sendSubviewToBack:_bgImageView];
 }
 
 - (void)viewWillAppear:(BOOL)animated

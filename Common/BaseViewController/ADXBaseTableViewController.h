@@ -21,6 +21,8 @@
     TTRefreshTableFooterView    *_footerView;        //更多按钮，需要变更加载状态
 }
 
+@property (nonatomic,strong)UIImageView *bgImageView;
+
 - (void)setBackButton;
 - (void)setLeftButton:(NSString *)title;
 - (void)setRightButton:(id)target action:(SEL)action title:(NSString *)title;

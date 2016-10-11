@@ -7,8 +7,12 @@
 //
 
 #import "TabBarController.h"
+#import "IndexTableViewController.h"
+#import "UCenterTableViewController.h"
 
-@interface TabBarController ()
+@interface TabBarController ()<UITabBarControllerDelegate>
+
+
 
 @end
 
@@ -17,7 +21,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.selectIndex = -1;
     [[UIApplication sharedApplication] setStatusBarHidden: NO];
+    self.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -82,5 +88,31 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSInteger select = tabBarController.selectedIndex;
+    if (select == self.selectIndex)
+    {
+        self.selectIndex = -1;
+         UINavigationController *nav = (UINavigationController *)viewController;
+//        if ([NSStringFromClass([nav.topViewController class]) isEqualToString:@"IndexTableViewController"])
+//        {
+//            IndexTableViewController *iVc = (IndexTableViewController *)nav.topViewController;
+//            [iVc loadData];
+//        }
+        if ([NSStringFromClass([nav.topViewController class]) isEqualToString:@"UCenterTableViewController"])
+        {
+            UCenterTableViewController *uVc = (UCenterTableViewController *)nav.topViewController;
+            [uVc loadData];
+        }
+    }
+    else
+    {
+        self.selectIndex = tabBarController.selectedIndex;
+    }
+    NSLog(@"%@",NSStringFromClass([viewController class]));
+    NSLog(@"%zi",self.selectIndex);
+    
+}
 
 @end

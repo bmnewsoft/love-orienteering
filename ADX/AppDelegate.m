@@ -24,7 +24,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [ADXAppearance setNavigationBarAppearance];
-    [self setDefaultBackGroundImage];
+    [self setBaseParameters];
     return YES;
 }
 
@@ -52,14 +52,15 @@
 
 #pragma mark InitWindowBackGround
 
-- (void) setDefaultBackGroundImage
+- (void) setBaseParameters
 {
-    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
-    UIImage * image = [UIImage imageNamed:@"app_bg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    imageView.image = image;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.window addSubview:imageView];
+//    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
+//    UIImage * image = [UIImage imageNamed:@"app_bg"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+//    imageView.image = image;
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    [self.window addSubview:imageView];
+    [[UINavigationBar appearance] setTranslucent:NO];
 }
 
 #pragma mark User

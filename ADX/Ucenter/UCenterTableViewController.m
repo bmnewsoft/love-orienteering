@@ -57,6 +57,7 @@
 
 -(void)setBaseParameters
 {
+    self.tableView.backgroundView = nil;
     _datas = [NSMutableArray arrayWithCapacity:1];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:nRELOADUSERCENTER object:nil];
 }

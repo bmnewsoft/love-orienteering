@@ -10,4 +10,6 @@
 
 @interface UCenterTableViewController : ADXBaseTableViewController
 
+- (void)loadData;
+
 @end

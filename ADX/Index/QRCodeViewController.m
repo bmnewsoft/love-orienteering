@@ -19,10 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.bgImageView removeFromSuperview];
     upOrdown = NO;
     num =0;
     lineIV_Y = CGRectGetMinY(_scanLineImageView.frame);
     [self cameraAuthor];
+//    self.view
     // Do any additional setup after loading the view.
 }
 

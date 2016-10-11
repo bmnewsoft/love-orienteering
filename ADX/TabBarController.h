@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabBarController : UITabBarController
+@interface TabBarController : UITabBarController<UITabBarControllerDelegate>
+
+@property (nonatomic ,assign)NSInteger selectIndex;
 
 @end
