@@ -16,6 +16,8 @@
 
 @property (nonatomic,strong) MUser *user;
 
+@property (nonatomic,strong) UIView *lunchView;
+
 
 @end
 

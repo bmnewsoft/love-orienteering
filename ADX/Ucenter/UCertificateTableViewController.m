@@ -65,7 +65,16 @@
         }
         else if(response.code == SUCCESS_CODE)
         {
-            
+            NSArray *items = [JSON objectForKey:@"items"];
+            for (NSDictionary *item in items) {
+                BaseModel *model = [[BaseModel alloc] initWithDic:item];
+                if (model.keyvalue != NULL)
+                {
+                    [_datas addObject:model];
+                }
+            }
+            [self.tableView reloadData];
+
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -11,6 +11,11 @@
 
 #import "ADXCache.h"
 
+#import "UIImageView+WebCache.h"
+#import "UIImage+GIF.h"
+
+//#import "BRTBeaconSDK.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,11 +25,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"cheshi");
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [ADXAppearance setNavigationBarAppearance];
     [self setBaseParameters];
+    
+    [self loadLaunchScreenView];
     return YES;
 }
 
@@ -50,17 +58,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark InitWindowBackGround
+#pragma mark InitBaseParameters
 
 - (void) setBaseParameters
 {
-//    CGSize size = CGSizeMake(ScreenWidth, ScreenHeigth);
-//    UIImage * image = [UIImage imageNamed:@"app_bg"];
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-//    imageView.image = image;
-//    imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    [self.window addSubview:imageView];
     [[UINavigationBar appearance] setTranslucent:NO];
+    
+    //注册智石
+//    [BRTBeaconSDK registerApp:bbAPPKEY onCompletion:^(BOOL complete, NSError *error) {
+//        if (complete == SUCCESS_CODE) {
+//            NSLog(@"BRT register success");
+//        }
+//        else
+//        {
+//            NSLog(@"BRT register failed:%@",error.localizedFailureReason);
+//        }
+//    }];
+//    [BRTBeaconSDK startRangingBeaconsInRegions:nil onCompletion:^(NSArray *beacons, BRTBeaconRegion *region, NSError *error){
+//        NSLog(@"进入区域回调:beacons:%@   /n region:%@",beacons,region);
+//    }];
+    
+    
+    
 }
 
 #pragma mark User
@@ -87,6 +106,65 @@
         _user = [ADXCache objectFromFile:fUserCache];
     }
     return _user;
+}
+
+#pragma mark 智石
+/*//监听失败回调
+-(void)beaconManager:(BRTBeaconManager *)manager monitoringDidFailForRegion:(BRTBeaconRegion *)region withError:(NSError *)error
+{
+    NSLog(@"%@",region);
+    if (error)
+    {
+        NSLog(@"%@",error.localizedFailureReason);
+    }
+}
+//进入区域回调
+-(void)beaconManager:(BRTBeaconManager *)manager didEnterRegion:(BRTBeaconRegion *)region{
+    if(region.notifyOnEntry){
+        //to do
+        NSLog(@"进入区域回调:manager:%@   /n region:%@",manager,region);
+    }
+}
+//离开区域回调
+-(void)beaconManager:(BRTBeaconManager *)manager didExitRegion:(BRTBeaconRegion *)region{
+    if(region.notifyOnExit){
+         NSLog(@"离开区域回调:manager:%@   /n region:%@",manager,region);
+        //to do
+    }
+}
+//屏幕点亮区域检测、requestStateForRegions回调
+-(void)beaconManager:(BRTBeaconManager *)manager didDetermineState:(CLRegionState)state forRegion:(BRTBeaconRegion *)region{
+    if(region.notifyEntryStateOnDisplay){
+        //to do
+        NSLog(@"notifyEntryStateOnDisplay:manager:%@   /n region:%@",manager,region);
+    }else if(region.notifyOnEntry){
+        //to do
+        NSLog(@"notifyOnEntry:manager:%@   /n region:%@",manager,region);
+    }else if(region.notifyOnExit){
+        //to do
+        NSLog(@"notifyOnExit:manager:%@   /n region:%@",manager,region);
+    }
+}*/
+
+
+#pragma mark LaunchScreen
+-(void) loadLaunchScreenView
+{
+    _lunchView = [[UIView alloc] init];
+    _lunchView.frame = CGRectMake(0, 0, self.window.screen.bounds.size.width, self.window.screen.bounds.size.height);
+    [ self.window.rootViewController.view addSubview:_lunchView];
+    
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:_lunchView.frame];
+    imageV.image = [UIImage sd_animatedGIFNamed:@"launch"];
+//    imageV.image = [UIImage imageNamed:@"login_bg"];
+    [_lunchView addSubview:imageV];
+    [ self.window.rootViewController.view bringSubviewToFront:_lunchView];
+    
+    [NSTimer scheduledTimerWithTimeInterval:4.5 target:self selector:@selector(removeLaunchScreen) userInfo:nil repeats:NO];
+}
+- (void)removeLaunchScreen
+{
+    [_lunchView removeFromSuperview];
 }
 
 

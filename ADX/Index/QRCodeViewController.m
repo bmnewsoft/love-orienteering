@@ -56,12 +56,12 @@
        
         _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
         
-        _input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
+        _input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // 更新界面
             // Preview
-            _preview =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
+            _preview =[AVCaptureVideoPreviewLayer layerWithSession:_session];
             _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
             //    _preview.frame =CGRectMake(20,110,280,280);
             _preview.frame = self.view.bounds;
@@ -143,10 +143,10 @@
             [_session addInput:self.input];
         }
         
-        if ([_session canAddOutput:self.output]) {
-            [_session addOutput:self.output];
+        if ([_session canAddOutput:_output]) {
+            [_session addOutput:_output];
             
-            NSArray *typeList = self.output.availableMetadataObjectTypes;
+            NSArray *typeList = _output.availableMetadataObjectTypes;
             NSLog(@"availableMetadataObjectTypes : %@", typeList);
             if ([typeList containsObject:AVMetadataObjectTypeQRCode])
             {
@@ -160,7 +160,6 @@
 #pragma mark 扫描动画
 -(void)scanAnimation
 {
-    CGFloat lineY = CGRectGetMinY(_scanLineImageView.frame);
     if (upOrdown == NO) {
         num ++;
         _scanLineImageView.frame = CGRectMake(CGRectGetMinX(_scanLineImageView.frame), lineIV_Y + 2*num, CGRectGetWidth(_scanLineImageView.frame), CGRectGetHeight(_scanLineImageView.frame));
@@ -197,6 +196,20 @@
         {
             [self.navigationController popViewControllerAnimated:YES];
         }
+        
+        NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+        if (userId == FAILED_CODE)
+        {
+            [self instantiateStoryBoard:@"Login"];
+        }
+        NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{ \"appcode\":\"A01\",\"keyvalue\": \"%@\",\"userid\": \"%zi\",\"target\": \"2DOL\"}",stringValue,@1]};
+        NSLog(@"%@",parameter);
+        [[APIClient sharedClient] requestPath:QRUPLOAD_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+            NSLog(@"%@",JSON);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+        }];
+        
     }
     
 }

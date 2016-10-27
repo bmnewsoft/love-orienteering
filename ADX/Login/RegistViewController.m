@@ -197,7 +197,8 @@ static int myTime;
         else
         {
             [ADXUserDefault setInt:[[JSON valueForKey:@"keyvalue"] integerValue] withKey:kUSERID];
-            [self instantiateStoryBoard:@"Main"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+//            [self instantiateStoryBoard:@"Main"];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self hideLoadingView];

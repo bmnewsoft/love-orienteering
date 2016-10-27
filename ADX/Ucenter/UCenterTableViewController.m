@@ -29,13 +29,14 @@
                         @"USettingTableViewController"]
 
 
-@interface UCenterTableViewController ()
+@interface UCenterTableViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *uHeaderImage;
 @property (weak, nonatomic) IBOutlet UILabel *nikenameLabel;
 
 @property (nonatomic,strong)NSString *headerUrl;
-@property (nonatomic,strong)NSString *nikenameStr;
+@property (nonatomic,strong)NSString *nicknameStr;
+@property (nonatomic,strong)UIImage *headImage;
 
 @property (nonatomic,strong)NSMutableArray *datas;
 
@@ -98,8 +99,9 @@
 
 -(void)setNikenameAndHeadImg:(BaseModel *)model
 {
-    [_uHeaderImage sd_setImageWithURL:[NSURL URLWithString:model.src1] placeholderImage:[UIImage imageNamed:@"headImage"]];
+    [_uHeaderImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",SERVER_URL,model.src1]] placeholderImage:_headImage == nil ?[UIImage imageNamed:@"headImage"]:_headImage];
     _nikenameLabel.text = [NSString stringWithFormat:@"昵称：%@",model.title1];
+    _nicknameStr = model.title1;
 }
 
 
@@ -134,6 +136,117 @@
     }
     [self.navigationController pushViewController:infoVc animated:YES];
 }
+
+#pragma mark button action
+
+//点击头像
+- (IBAction)headImageAction:(UIButton *)sender
+{
+    /**
+     *  弹出提示框
+     */
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
+        PickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        //允许编辑，即放大裁剪
+        PickerImage.allowsEditing = YES;
+        //自代理
+        PickerImage.delegate = self;
+        //页面跳转
+        [self presentViewController:PickerImage animated:YES completion:nil];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+        UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
+        PickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
+        PickerImage.allowsEditing = YES;
+        PickerImage.delegate = self;
+        [self presentViewController:PickerImage animated:YES completion:nil];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+//点击昵称
+- (IBAction)nicknameAction:(UIButton *)sender
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"修改昵称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(alert) weakAlert = alert;
+    UIAlertAction *destructive = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"destructive");
+        NSArray *textArray = [weakAlert textFields];
+        UITextField *nameText = textArray[0];
+        [self editNickname:nameText.text];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"cancel");
+        //        [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:cancel];
+    [alert addAction:destructive];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.font = [UIFont systemFontOfSize:15];
+        textField.text = _nicknameStr;
+        textField.textColor = UIColorRGB(80, 92, 112);
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+//选择头像回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    //定义一个newPhoto，用来存放我们选择的图片。
+    UIImage *newPhoto = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    _uHeaderImage.image = newPhoto;
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self uploadHeadImage:newPhoto];
+}
+
+
+//修改头像
+- (BOOL) uploadHeadImage:(UIImage *)headImage
+{
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    NSDictionary *parameter = @{@"type":@"headimg",
+                                @"userid":[NSNumber numberWithInteger:userId],
+                                @"nickname":@"",
+                                @"headimg":@""
+                                };
+    
+    [[APIClient sharedClient] requestPath:UPLOAD_URL parameters:parameter constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *imageData = UIImagePNGRepresentation(headImage);
+        [formData appendPartWithFileData:imageData name:@"gravatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self showToast:@"修改成功"];
+        _headImage = headImage;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"-----");
+        _uHeaderImage.image = _headImage;
+    }];
+    return NO;
+}
+
+//修改昵称
+- (void) editNickname:(NSString *)nickname
+{
+    if ([nickname isEqualToString:_nicknameStr])
+    {
+        return ;
+    }
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    NSDictionary *parameter = @{@"type":@"update",
+                                @"userid":[NSNumber numberWithInteger:userId],
+                                @"nickname":nickname
+                                };
+    [[APIClient sharedClient] requestPath:UPLOAD_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        _nikenameLabel.text = [NSString stringWithFormat:@"昵称：%@" ,nickname];
+        _nicknameStr = nickname;
+        [self showToast:@"修改成功"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self showToast:@"修改失败"];
+    }];
+}
+
 /*
 #pragma mark - Navigation
 

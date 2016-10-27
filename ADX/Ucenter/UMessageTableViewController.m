@@ -8,8 +8,11 @@
 
 #import "UMessageTableViewController.h"
 #import "UMessageCell.h"
+#import "BaseModel.h"
 
 @interface UMessageTableViewController ()
+
+@property (nonatomic,strong)NSMutableArray *datas;
 
 @end
 
@@ -24,13 +27,59 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)setBaseParameters
+{
+    _datas = [NSMutableArray arrayWithCapacity:1];
+}
 
+
+- (void)loadData
+{
+    [self showLoadingView];
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    if (userId == FAILED_CODE)
+    {
+        [self instantiateStoryBoard:@"Login"];
+    }
+    
+    NSDictionary *parameter = @{pAPPCODE,
+                                pGROUPCODE:@"A01_P9_G1",
+                                pKEYVALUE:@"",
+                                pUSERID:[NSNumber numberWithInteger:userId]};
+    
+    
+    [[APIClient sharedClient] requestPath:DATA_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self hideLoadingView];
+        Response *response = [Response responseWithDict:JSON];
+        if (response.code == FAILED_CODE)
+        {
+            [self showToast:response.message];
+        }
+        else if(response.code == SUCCESS_CODE)
+        {
+            NSArray *items = [JSON objectForKey:@"items"];
+            for (NSDictionary *item in items) {
+                BaseModel *model = [[BaseModel alloc] initWithDic:item];
+                if (model.keyvalue != NULL)
+                {
+                    [_datas addObject:model];
+                }
+            }
+            [self.tableView reloadData];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+        [self showNetworkNotAvailable];
+    }];
+    
+}
 
 #pragma mark UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _datas.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -41,6 +90,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UMessageCell *cell =[tableView dequeueReusableCellWithIdentifier:@"UMessageCell"];
+    [cell setModel:_datas[indexPath.row]];
     return cell;
 }
 

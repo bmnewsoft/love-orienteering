@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BaseModel.h"
+
 @interface UMatchCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subTitelLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *AimageView;
+
+@property (nonatomic,strong)BaseModel *model;
 
 @end

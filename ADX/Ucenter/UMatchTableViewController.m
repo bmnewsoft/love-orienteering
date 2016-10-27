@@ -9,8 +9,11 @@
 #import "UMatchTableViewController.h"
 
 #import "UMatchCell.h"
+#import "BaseModel.h"
 
 @interface UMatchTableViewController ()
+
+@property (nonatomic,strong)NSMutableArray *datas;
 
 @end
 
@@ -18,7 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBaseParameters];
+    [self loadData];
     // Do any additional setup after loading the view.
+}
+
+- (void)setBaseParameters
+{
+    _datas = [NSMutableArray arrayWithCapacity:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,10 +37,52 @@
 }
 
 
+- (void)loadData
+{
+    [self showLoadingView];
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    if (userId == FAILED_CODE)
+    {
+        [self instantiateStoryBoard:@"Login"];
+    }
+    
+    NSDictionary *parameter = @{pAPPCODE,
+                                pGROUPCODE:@"A01_P2_G1",
+                                pKEYVALUE:@"1",
+                                pUSERID:[NSNumber numberWithInteger:userId]};
+    
+    NSLog(@"%@",parameter);
+    [[APIClient sharedClient] requestPath:DATA_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        [self hideLoadingView];
+        Response *response = [Response responseWithDict:JSON];
+        if (response.code == FAILED_CODE)
+        {
+            [self showToast:response.message];
+        }
+        else if(response.code == SUCCESS_CODE)
+        {
+            NSArray *items = [JSON objectForKey:@"items"];
+            for (NSDictionary *item in items) {
+                BaseModel *model = [[BaseModel alloc] initWithDic:item];
+                if (model.keyvalue != NULL)
+                {
+                    [_datas addObject:model];
+                }
+            }
+            [self.tableView reloadData];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self hideLoadingView];
+        [self showNetworkNotAvailable];
+    }];
+
+}
+
 #pragma mark UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _datas.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -41,6 +93,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UMatchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"UMatchCell"];
+    [cell setModel:_datas[indexPath.row]];
     return cell;
 }
 //#pragma mark UITableViewDelegate

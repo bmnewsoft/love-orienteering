@@ -12,11 +12,11 @@
 + (NSString*)documentDirectory
 {
     //for test
-#ifdef DEBUG
-    static NSString *documentPath = @"/Users/yuanqiuyan/Desktop/爱定向/cache";
-#else
+//#ifdef DEBUG
+//    static NSString *documentPath = @"/Users/yuanqiuyan/Desktop/爱定向/cache";
+//#else
     static NSString *documentPath = nil;
-#endif
+//#endif
     
     if (documentPath == nil)
     {
@@ -58,7 +58,6 @@
 + (id)objectFromFile:(NSString *)fileName
 {
     NSString *filePath = [[ADXCache documentDirectory] stringByAppendingPathComponent:fileName];
-    
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     if (data == nil)
     {

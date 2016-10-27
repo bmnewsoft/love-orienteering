@@ -10,4 +10,9 @@
 
 @interface TaskIngViewController : ADXBaseViewController
 
+typedef enum {
+    LoadData_Time=1,//时间
+    LoadData_Data,//数据
+} LoadDataType;
+
 @end

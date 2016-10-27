@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     self.tabBar.shadowImage = [UIImage new];
+    
 //    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1)
 //    {
 //        [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tab_background"]];
@@ -93,7 +94,6 @@
     NSInteger select = tabBarController.selectedIndex;
     if (select == self.selectIndex)
     {
-        self.selectIndex = -1;
          UINavigationController *nav = (UINavigationController *)viewController;
 //        if ([NSStringFromClass([nav.topViewController class]) isEqualToString:@"IndexTableViewController"])
 //        {
@@ -110,8 +110,6 @@
     {
         self.selectIndex = tabBarController.selectedIndex;
     }
-    NSLog(@"%@",NSStringFromClass([viewController class]));
-    NSLog(@"%zi",self.selectIndex);
     
 }
 

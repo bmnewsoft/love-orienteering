@@ -31,13 +31,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    MUser *user = ShareAppDelegate.user;
      self.userPhoneNum = ShareAppDelegate.user.phoneNum;
     if (self.userPhoneNum != nil && self.userPhoneNum.length == 11)
     {
         NSRange range = {3,4};
         _mobileTF.text = [self.userPhoneNum stringByReplacingCharactersInRange:range withString:@"****"];
-        _mobileTF.enabled = NO;
     }
+    _mobileTF.enabled = NO;
 //    _mobileTF.text = @"18523633632";
     [self setBaseParameters];
 }

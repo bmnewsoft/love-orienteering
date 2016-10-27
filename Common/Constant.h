@@ -19,7 +19,7 @@
 #ifdef DEBUG
 #define SERVER_URL          @"http://wx.wispark.cn/QSServer/"
 #else
-#define SERVER_URL          @"http://123.57.190.60:8080/api/"
+#define SERVER_URL          @"http://wx.wispark.cn/QSServer/"
 #endif
 
 //登陆
@@ -29,7 +29,7 @@
 #define SMS_URL             @"sms"
 
 //注册
-#define USER_URL          @"user"
+#define USER_URL            @"user"
 
 //加密
 #define DIGEST_URL          @"digest"
@@ -37,17 +37,26 @@
 //获取数据
 #define DATA_URL            @"DoData"
 
-#define SUBMIT_URL      @"submitData"
+//提交数据
+#define SUBMIT_URL          @"submitData"
+
+//上传数据
+#define UPLOAD_URL          @"upload"
+
+//二维码上传数据
+#define QRUPLOAD_URL        @"updateData"
+
+
 
 #pragma mark parameters
 
-#define pAPPCODE             @"appcode":@"A01"
+#define pAPPCODE            @"appcode":@"A01"
 
-#define pGROUPCODE           @"groupcode"
+#define pGROUPCODE          @"groupcode"
 
-#define pKEYVALUE            @"keyvalue"
+#define pKEYVALUE           @"keyvalue"
 
-#define pUSERID              @"userid"
+#define pUSERID             @"userid"
 
 
 #pragma mark FileName
@@ -61,5 +70,10 @@
 #pragma makr Notification
 
 #define nRELOADUSERCENTER   @"N_reload_user_center"
+
+
+#pragma mark IBEACON
+
+#define bbAPPKEY            @"3c42332734934a18a65bfaa346ec8619"
 
 #endif /* Constant_h */
