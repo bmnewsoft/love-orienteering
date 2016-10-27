@@ -13,10 +13,13 @@
 		69252F9C1DA4DE96005EE2E5 /* IndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252F9B1DA4DE96005EE2E5 /* IndexCell.m */; };
 		69252F9E1DA4F8D1005EE2E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69252F9D1DA4F8D1005EE2E5 /* Default-568h@2x.png */; };
 		69252FA11DA5DF52005EE2E5 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */; };
+		693B47D81DB76D2700FACABE /* UMatchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693B47D71DB76D2700FACABE /* UMatchDetailViewController.m */; };
 		69567A7C1DAA81DE0080CAC1 /* URePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A7B1DAA81DE0080CAC1 /* URePasswordViewController.m */; };
 		69567A7F1DAA8D380080CAC1 /* UNewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A7E1DAA8D380080CAC1 /* UNewPasswordViewController.m */; };
 		69567A821DAAA3270080CAC1 /* UFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A811DAAA3270080CAC1 /* UFeedBackViewController.m */; };
 		69567A851DAAACEA0080CAC1 /* UAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69567A841DAAACEA0080CAC1 /* UAboutViewController.m */; };
+		6963B5941DC1A621006E852D /* lauchScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963B5931DC1A621006E852D /* lauchScreenView.m */; };
+		6963B5961DC1AB8A006E852D /* launch.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6963B5951DC1AB8A006E852D /* launch.gif */; };
 		6985A1881DA62E2B00F1FB69 /* task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6985A1871DA62E2B00F1FB69 /* task.storyboard */; };
 		6985A18C1DA6597600F1FB69 /* TaskIngViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */; };
 		6985A1901DA659F000F1FB69 /* TaskIngCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6985A18F1DA659F000F1FB69 /* TaskIngCell.m */; };
@@ -116,6 +119,9 @@
 		69B473A21DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4739E1DA11EB60079D7B7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		69B473A51DA39D390079D7B7 /* ADXAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B473A41DA39D390079D7B7 /* ADXAppearance.m */; };
 		69C02B561DAD3E17000C15E5 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C02B551DAD3E17000C15E5 /* TaskViewController.m */; };
+		69D756C81DB4657A009AE8F7 /* libBrightSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D756C71DB4657A009AE8F7 /* libBrightSDK.a */; };
+		69D756CF1DB46A77009AE8F7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D756CE1DB46A77009AE8F7 /* CoreBluetooth.framework */; };
+		69D756D11DB46A81009AE8F7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D756D01DB46A81009AE8F7 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +136,8 @@
 		69252F9D1DA4F8D1005EE2E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		69252F9F1DA5DF52005EE2E5 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
 		69252FA01DA5DF52005EE2E5 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		693B47D61DB76D2700FACABE /* UMatchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMatchDetailViewController.h; sourceTree = "<group>"; };
+		693B47D71DB76D2700FACABE /* UMatchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMatchDetailViewController.m; sourceTree = "<group>"; };
 		69567A7A1DAA81DE0080CAC1 /* URePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URePasswordViewController.h; sourceTree = "<group>"; };
 		69567A7B1DAA81DE0080CAC1 /* URePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URePasswordViewController.m; sourceTree = "<group>"; };
 		69567A7D1DAA8D380080CAC1 /* UNewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNewPasswordViewController.h; sourceTree = "<group>"; };
@@ -138,6 +146,9 @@
 		69567A811DAAA3270080CAC1 /* UFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFeedBackViewController.m; sourceTree = "<group>"; };
 		69567A831DAAACEA0080CAC1 /* UAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAboutViewController.h; sourceTree = "<group>"; };
 		69567A841DAAACEA0080CAC1 /* UAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAboutViewController.m; sourceTree = "<group>"; };
+		6963B5921DC1A621006E852D /* lauchScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lauchScreenView.h; sourceTree = "<group>"; };
+		6963B5931DC1A621006E852D /* lauchScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lauchScreenView.m; sourceTree = "<group>"; };
+		6963B5951DC1AB8A006E852D /* launch.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch.gif; sourceTree = "<group>"; };
 		6985A1871DA62E2B00F1FB69 /* task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = task.storyboard; sourceTree = "<group>"; };
 		6985A18A1DA6597600F1FB69 /* TaskIngViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskIngViewController.h; sourceTree = "<group>"; };
 		6985A18B1DA6597600F1FB69 /* TaskIngViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskIngViewController.m; sourceTree = "<group>"; };
@@ -337,6 +348,15 @@
 		69B473A41DA39D390079D7B7 /* ADXAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADXAppearance.m; sourceTree = "<group>"; };
 		69C02B541DAD3E17000C15E5 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		69C02B551DAD3E17000C15E5 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		69D756C11DB4657A009AE8F7 /* BRTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTBeacon.h; sourceTree = "<group>"; };
+		69D756C21DB4657A009AE8F7 /* BRTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTBeaconDefinitions.h; sourceTree = "<group>"; };
+		69D756C31DB4657A009AE8F7 /* BRTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTBeaconManager.h; sourceTree = "<group>"; };
+		69D756C41DB4657A009AE8F7 /* BRTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTBeaconRegion.h; sourceTree = "<group>"; };
+		69D756C51DB4657A009AE8F7 /* BRTBeaconSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTBeaconSDK.h; sourceTree = "<group>"; };
+		69D756C61DB4657A009AE8F7 /* OpenUDIDIOS7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDIDIOS7.h; sourceTree = "<group>"; };
+		69D756C71DB4657A009AE8F7 /* libBrightSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBrightSDK.a; sourceTree = "<group>"; };
+		69D756CE1DB46A77009AE8F7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		69D756D01DB46A81009AE8F7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +364,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D756D11DB46A81009AE8F7 /* CoreLocation.framework in Frameworks */,
+				69D756CF1DB46A77009AE8F7 /* CoreBluetooth.framework in Frameworks */,
+				69D756C81DB4657A009AE8F7 /* libBrightSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +441,8 @@
 				69567A811DAAA3270080CAC1 /* UFeedBackViewController.m */,
 				69567A831DAAACEA0080CAC1 /* UAboutViewController.h */,
 				69567A841DAAACEA0080CAC1 /* UAboutViewController.m */,
+				693B47D61DB76D2700FACABE /* UMatchDetailViewController.h */,
+				693B47D71DB76D2700FACABE /* UMatchDetailViewController.m */,
 			);
 			path = Ucenter;
 			sourceTree = "<group>";
@@ -544,6 +569,7 @@
 		69A417571D9F47B3006E4E58 = {
 			isa = PBXGroup;
 			children = (
+				69D756CD1DB46A46009AE8F7 /* Frameworks */,
 				69A418121D9F589D006E4E58 /* Common */,
 				69A417881D9F4FC5006E4E58 /* Thirds */,
 				69A417621D9F47B3006E4E58 /* ADX */,
@@ -568,6 +594,7 @@
 				69B4738A1DA0F9980079D7B7 /* Login */,
 				69A417661D9F47B3006E4E58 /* AppDelegate.h */,
 				69A417671D9F47B3006E4E58 /* AppDelegate.m */,
+				6963B5951DC1AB8A006E852D /* launch.gif */,
 				69A417691D9F47B3006E4E58 /* ViewController.h */,
 				69A4176A1D9F47B3006E4E58 /* ViewController.m */,
 				69252F881DA49860005EE2E5 /* TabBarController.h */,
@@ -577,6 +604,8 @@
 				69A417711D9F47B3006E4E58 /* LaunchScreen.storyboard */,
 				69A417741D9F47B3006E4E58 /* Info.plist */,
 				69A417631D9F47B3006E4E58 /* Supporting Files */,
+				6963B5921DC1A621006E852D /* lauchScreenView.h */,
+				6963B5931DC1A621006E852D /* lauchScreenView.m */,
 			);
 			path = ADX;
 			sourceTree = "<group>";
@@ -593,6 +622,7 @@
 		69A417881D9F4FC5006E4E58 /* Thirds */ = {
 			isa = PBXGroup;
 			children = (
+				69D756BF1DB4657A009AE8F7 /* BrightSDK */,
 				698E9A261DA8BCCD0003C4D4 /* IQKeyboardManager */,
 				69B473961DA11EB50079D7B7 /* TPKeyboardAvoiding */,
 				69B473741DA0AB880079D7B7 /* EGORefreshTable */,
@@ -798,6 +828,37 @@
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
+		69D756BF1DB4657A009AE8F7 /* BrightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				69D756C01DB4657A009AE8F7 /* include */,
+				69D756C71DB4657A009AE8F7 /* libBrightSDK.a */,
+			);
+			path = BrightSDK;
+			sourceTree = "<group>";
+		};
+		69D756C01DB4657A009AE8F7 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				69D756C11DB4657A009AE8F7 /* BRTBeacon.h */,
+				69D756C21DB4657A009AE8F7 /* BRTBeaconDefinitions.h */,
+				69D756C31DB4657A009AE8F7 /* BRTBeaconManager.h */,
+				69D756C41DB4657A009AE8F7 /* BRTBeaconRegion.h */,
+				69D756C51DB4657A009AE8F7 /* BRTBeaconSDK.h */,
+				69D756C61DB4657A009AE8F7 /* OpenUDIDIOS7.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		69D756CD1DB46A46009AE8F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69D756D01DB46A81009AE8F7 /* CoreLocation.framework */,
+				69D756CE1DB46A77009AE8F7 /* CoreBluetooth.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -829,6 +890,7 @@
 				TargetAttributes = {
 					69A4175F1D9F47B3006E4E58 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = VYU8Z2XMZF;
 					};
 				};
 			};
@@ -863,6 +925,7 @@
 				69A417F91D9F53C9006E4E58 /* MJRefresh.bundle in Resources */,
 				69252F9E1DA4F8D1005EE2E5 /* Default-568h@2x.png in Resources */,
 				698E9A221DA7E2810003C4D4 /* UCenter.storyboard in Resources */,
+				6963B5961DC1AB8A006E852D /* launch.gif in Resources */,
 				698E9A591DA8BCCE0003C4D4 /* IQKeyboardManager.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,12 +1020,14 @@
 				69A418011D9F53C9006E4E58 /* MKAnnotationView+WebCache.m in Sources */,
 				69252F941DA4D12A005EE2E5 /* IndexTableViewController.m in Sources */,
 				69A417F71D9F53C9006E4E58 /* UIView+Toast.m in Sources */,
+				693B47D81DB76D2700FACABE /* UMatchDetailViewController.m in Sources */,
 				698E9A551DA8BCCE0003C4D4 /* IQPreviousNextView.m in Sources */,
 				698E9A521DA8BCCE0003C4D4 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				69B473891DA0F1670079D7B7 /* APIClient.m in Sources */,
 				698E9A541DA8BCCE0003C4D4 /* IQBarButtonItem.m in Sources */,
 				69A417FA1D9F53C9006E4E58 /* MJRefreshBaseView.m in Sources */,
 				69567A7C1DAA81DE0080CAC1 /* URePasswordViewController.m in Sources */,
+				6963B5941DC1A621006E852D /* lauchScreenView.m in Sources */,
 				69B473A01DA11EB60079D7B7 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				69A417FC1D9F53C9006E4E58 /* MJRefreshFooterView.m in Sources */,
 				69A417F31D9F53C9006E4E58 /* NSString+URLEncoding.m in Sources */,
@@ -1016,8 +1081,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Meng Li (86BT585C9P)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Meng Li (86BT585C9P)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1039,7 +1104,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "fbf17937-75f9-4baf-b1ad-0b7e1e40b0a4";
+				PROVISIONING_PROFILE = "b27864a4-a27a-40b0-9b53-dde276ce49be";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1061,8 +1126,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Meng Li (86BT585C9P)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Meng Li (86BT585C9P)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1077,7 +1142,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "fbf17937-75f9-4baf-b1ad-0b7e1e40b0a4";
+				PROVISIONING_PROFILE = "b27864a4-a27a-40b0-9b53-dde276ce49be";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1087,13 +1152,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ADX/ADX.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = ADX/Info.plist;
 				INSTALL_OWNER = MDJ;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Thirds/BrightSDK",
+				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmnew.adx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1101,13 +1174,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ADX/ADX.pch";
 				INFOPLIST_FILE = ADX/Info.plist;
 				INSTALL_OWNER = MDJ;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Thirds/BrightSDK",
+				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bmnew.adx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
