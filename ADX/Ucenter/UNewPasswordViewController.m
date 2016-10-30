@@ -59,13 +59,15 @@
     
     [[APIClient sharedClient] requestPath:USER_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
         [self hideLoadingView];
-        Response *response = [Response responseWithDict:JSON];
-        if (response.code == FAILED_CODE)
+        NSInteger code = [JSON[@"success"] integerValue];
+        NSString *errorMsg = JSON[@"message"];
+        if (code != SUCCESS_CODE)
         {
-            [self showToast:response.message];
+            [self showToast:errorMsg];
         }
-        else if(response.code == SUCCESS_CODE)
+        else
         {
+            [self showToast:@"修改成功"];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
         

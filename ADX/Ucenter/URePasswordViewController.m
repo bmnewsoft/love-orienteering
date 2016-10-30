@@ -22,6 +22,8 @@
 @property (nonatomic,strong)NSString *smsCode;
 @property (nonatomic,strong)NSString *userPhoneNum;
 
+@property (nonatomic,assign)BOOL isSendSms;
+
 
 @property (strong,nonatomic) NSTimer * timer;
 
@@ -38,14 +40,14 @@
         NSRange range = {3,4};
         _mobileTF.text = [self.userPhoneNum stringByReplacingCharactersInRange:range withString:@"****"];
     }
-    _mobileTF.enabled = NO;
-//    _mobileTF.text = @"18523633632";
     [self setBaseParameters];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self.timer invalidate];
+    _isSendSms = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +58,8 @@
 -(void)setBaseParameters
 {
     self.title = @"修改密码";
-    
+    _mobileTF.enabled = NO;
+    _isSendSms = NO;
 //    ShareAppDelegate.userInfo
 }
 
@@ -96,6 +99,7 @@ static int myTime;
     self.sendCodeBt.enabled = NO;
     [[APIClient sharedClient] requestPath:SMS_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON)
      {
+         _isSendSms = YES;
          [self hideLoadingView];
          self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeButtonName) userInfo:nil repeats:YES];
          self.ButtonLabel.text = @"60s";
@@ -127,6 +131,13 @@ static int myTime;
     if ([identifier isEqualToString:@"RePasswordNexSegueID"]) {
         UIButton *button = (UIButton*)sender;
         button.enabled = NO;
+        if (!_isSendSms)
+        {
+            [self showToast:@"先获取验证码"];
+            button.enabled = YES;
+            return NO;
+        }
+        
         if (_smsCode.length > 0 && ![_smsCode isEqualToString:[_smsCodeTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]])
         {
             [self showToast:@"请输入正确验证码"];
@@ -145,7 +156,7 @@ static int myTime;
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UNewPasswordViewController * nextVc = segue.destinationViewController;
-    nextVc.mobile = [self.mobileTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    nextVc.mobile = _userPhoneNum;
     nextVc.smsCode = [_smsCodeTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 

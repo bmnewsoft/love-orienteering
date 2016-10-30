@@ -164,6 +164,11 @@ static int myTime;
         [self showToast:@"验证码不能为空"];
         return;
     }
+    else if (![verifyCode isEqualToString:_smsCode])
+    {
+        [self showToast:@"验证码不正确"];
+        return;
+    }
     else if (![password isEqualToString:rePassword]) {
         [self showToast:@"两次输入密码不一致"];
         return;

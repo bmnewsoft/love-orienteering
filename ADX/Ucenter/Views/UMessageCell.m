@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,7 +27,8 @@
         return;
     }
     _model = model;
-    _titelLabel.text = _model.title1;
+    _headTitleLabel.text = _model.title1;
+    _titelLabel.text = _model.title3;
     _timeLabel.text = _model.title2;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseModel.h"
 
 @class MUser;
 
@@ -17,6 +18,8 @@
 @property (nonatomic,strong) MUser *user;
 
 @property (nonatomic,strong) UIView *lunchView;
+
+@property (nonatomic,strong) NSArray *beacons;
 
 
 @end

@@ -33,8 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 #ifdef DEBUG
-    _userNameTextField.text = @"18523633632";
-    _passwordTextField.text = @"123123";
+    _userNameTextField.text = @"18301182342";
+    _passwordTextField.text = @"047X";
 #endif
     
     // Do any additional setup after loading the view.

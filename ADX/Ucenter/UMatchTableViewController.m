@@ -7,6 +7,7 @@
 //
 
 #import "UMatchTableViewController.h"
+#import "UMatchDetailTVController.h"
 
 #import "UMatchCell.h"
 #import "BaseModel.h"
@@ -59,9 +60,12 @@
         {
             [self showToast:response.message];
         }
-        else if(response.code == SUCCESS_CODE)
+        else
         {
             NSArray *items = [JSON objectForKey:@"items"];
+            if (items== NULL || items.count <= 0) {
+                return ;
+            }
             for (NSDictionary *item in items) {
                 BaseModel *model = [[BaseModel alloc] initWithDic:item];
                 if (model.keyvalue != NULL)
@@ -109,14 +113,18 @@
 //    }
 //}
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+   UMatchDetailTVController *dVc = (UMatchDetailTVController*)segue.destinationViewController;
+   UMatchCell *ucell = (UMatchCell*)sender;
+   NSIndexPath *cellPath =  [self.tableView indexPathForCell:ucell];
+    dVc.keyValue = ((BaseModel *)_datas[cellPath.row]).keyvalue;
 }
-*/
+
 
 @end

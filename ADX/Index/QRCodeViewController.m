@@ -61,13 +61,13 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // 更新界面
             // Preview
-            _preview =[AVCaptureVideoPreviewLayer layerWithSession:_session];
+            _preview =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
             _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
             //    _preview.frame =CGRectMake(20,110,280,280);
             _preview.frame = self.view.bounds;
             [self.view.layer insertSublayer:self.preview atIndex:0];
             // Start
-            [_session startRunning];
+            [self.session startRunning];
         });
     });
 }
@@ -99,6 +99,7 @@
                         //第一次用户接受
                         
                         [self setupCamera];
+                        timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(scanAnimation) userInfo:nil repeats:YES];
                     }else{
                         //用户拒绝
                         hasCameraRight = NO;
@@ -143,7 +144,7 @@
             [_session addInput:self.input];
         }
         
-        if ([_session canAddOutput:_output]) {
+        if ([_session canAddOutput:self.output]) {
             [_session addOutput:_output];
             
             NSArray *typeList = _output.availableMetadataObjectTypes;
@@ -182,7 +183,7 @@
 {
     
     NSString *stringValue;
-    
+    [self showLoadingView];
     if ([metadataObjects count] >0)
     {
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
@@ -190,27 +191,26 @@
         
         [_session stopRunning];
         [timer invalidate];
-        NSLog(@"%@",stringValue);
         
-        if (stringValue.length > 0)
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
         
         NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
         if (userId == FAILED_CODE)
         {
             [self instantiateStoryBoard:@"Login"];
         }
-        NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{ \"appcode\":\"A01\",\"keyvalue\": \"%@\",\"userid\": \"%zi\",\"target\": \"2DOL\"}",stringValue,@1]};
+        NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{ \"appcode\":\"A01\",\"keyvalue\": \"%@\",\"userid\": \"%zi\",\"target\": \"2DOL\"}",stringValue,userId]};
         NSLog(@"%@",parameter);
         [[APIClient sharedClient] requestPath:QRUPLOAD_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
             NSLog(@"%@",JSON);
+            [self showToast:JSON[@"message"]];
+            [self.navigationController popViewControllerAnimated:YES];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@",error);
+            [self showToast:@"扫描失败"];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
         
     }
+    [self hideLoadingView];
     
 }
 

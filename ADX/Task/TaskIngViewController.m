@@ -7,6 +7,7 @@
 //
 
 #import "TaskIngViewController.h"
+#import "IWebController.h"
 #import "BaseModel.h"
 #import "TaskIngCell.h"
 
@@ -190,7 +191,16 @@
 #pragma mark UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    BaseModel *model =  _datas[indexPath.row];
+    if (model.title4 == nil)
+    {
+        return;
+    }
+    UIStoryboard *story = STORYBOARDWITHNAME(@"Main");
+    IWebController *myView = [story instantiateViewControllerWithIdentifier:@"IWebController"];
+    myView.webUrl = model.title4;
+    myView.titleStr = model.title2;
+    [self.navigationController pushViewController:myView animated:YES];
 }
 
 /*

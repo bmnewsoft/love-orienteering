@@ -20,16 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setBaseParameters];
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(void)setBaseParameters
 {
     _datas = [NSMutableArray arrayWithCapacity:1];
+    [UIApplication sharedApplication].applicationIconBadgeNumber= 0;
 }
 
 
@@ -43,7 +44,7 @@
     }
     
     NSDictionary *parameter = @{pAPPCODE,
-                                pGROUPCODE:@"A01_P9_G1",
+                                pGROUPCODE:@"A01_P10_G1",
                                 pKEYVALUE:@"",
                                 pUSERID:[NSNumber numberWithInteger:userId]};
     
@@ -55,7 +56,7 @@
         {
             [self showToast:response.message];
         }
-        else if(response.code == SUCCESS_CODE)
+        else
         {
             NSArray *items = [JSON objectForKey:@"items"];
             for (NSDictionary *item in items) {

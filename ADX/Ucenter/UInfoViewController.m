@@ -95,7 +95,7 @@
     
     NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID];
     
-    NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{\"SetMyProfile\":{ \"1userid\":%zi,\"2username\": \"%@\",\"3sex\": \"%zi\",\"4age\": \"%@\",\"5CardID\": \"%@\"}}",userId,_nameTF.text,sele+1,_ageTF.text,_IdentityIdTF.text]};
+    NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{\"SetMyProfile\":{ \"1userid\":%zi,\"2username\": \"%@\",\"3sex\": \"%zi\",\"4age\": \"%@\",\"5CardID\": \"%@\",\"phone\": \"\"}}",userId,_nameTF.text,sele+1,_ageTF.text,_IdentityIdTF.text]};
     
     [[APIClient sharedClient] requestPath:SUBMIT_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
         [self hideLoadingView];

@@ -56,7 +56,9 @@ fprintf(stderr, "-------\n");                                               \
 
 #pragma mark Storyboard
 
-#define STORYBOARDWITHNAME(nameStr) [UIStoryboard storyboardWithName:nameStr bundle:nil];
+#define STORYBOARDWITHNAME(nameStr) [UIStoryboard storyboardWithName:nameStr bundle:[NSBundle mainBundle]];
+
+#define Lang(en,zh) [[NSLocale preferredLanguages][0] rangeOfString:@"zh"].location==0?zh:en
 
 
 #endif /* ADXMacro_h */

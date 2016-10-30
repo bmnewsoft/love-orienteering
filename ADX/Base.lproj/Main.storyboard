@@ -172,7 +172,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I9R-5u-qed" id="1E9-gi-NmT">
-                                                    <frame key="frameInset" width="320" height="62"/>
+                                                    <frame key="frameInset" width="320" height="61"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -189,6 +189,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7O-xo-ncp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-404" y="1654"/>
+        </scene>
+        <!--Web Controller-->
+        <scene sceneID="kXe-zW-ZdG">
+            <objects>
+                <viewController storyboardIdentifier="IWebController" hidesBottomBarWhenPushed="YES" id="J58-xq-TRv" customClass="IWebController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T9Q-Yo-N6f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" id="FFH-bF-zXV">
+                                <frame key="frameInset" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="iWebView" destination="FFH-bF-zXV" id="bnL-zJ-bgB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7t-tY-eLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117" y="1654"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uSl-UU-9c9">
@@ -280,14 +304,14 @@
         <scene sceneID="KBR-MX-jZn">
             <objects>
                 <tableViewController id="9BR-sc-VlV" customClass="IndexTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" id="V28-8l-sVv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="270" sectionHeaderHeight="28" sectionFooterHeight="28" id="V28-8l-sVv">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IndexCell" rowHeight="270" id="B0z-gn-zRr" customClass="IndexCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IndexCell" rowHeight="270" id="B0z-gn-zRr" customClass="IndexCell">
                                 <rect key="frame" x="0.0" y="28" width="320" height="270"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B0z-gn-zRr" id="Tkg-Gj-19Z">
@@ -385,7 +409,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskIngCell" id="67f-TS-NFL" customClass="TaskIngCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskIngCell" id="67f-TS-NFL" customClass="TaskIngCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67f-TS-NFL" id="FSf-Vp-639">
@@ -462,14 +486,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem image="QRCode_Scan" id="eY1-bb-kGl">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="任务书" id="Wh9-wg-cW5">
                         <barButtonItem key="rightBarButtonItem" image="QRCode_Scan" id="PMe-su-kH3">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="YiW-XB-8ib" kind="push" id="avr-0C-dXQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
@@ -482,14 +505,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keR-lp-anq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="-1158"/>
+            <point key="canvasLocation" x="459" y="238"/>
         </scene>
         <!--扫一扫-->
         <scene sceneID="Puy-q5-I33">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="YiW-XB-8ib" customClass="QRCodeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3t6-zd-ymI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanframe" id="VNq-xk-eUM">
@@ -539,7 +562,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="DHu-EW-WAP"/>
         <segue reference="EbV-8q-3gf"/>
+        <segue reference="avr-0C-dXQ"/>
     </inferredMetricsTieBreakers>
 </document>

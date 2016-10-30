@@ -11,6 +11,7 @@
 #import "BaseModel.h"
 
 @interface UMessageCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *headTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 

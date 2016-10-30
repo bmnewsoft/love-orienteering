@@ -74,6 +74,11 @@
 
 #pragma mark IBEACON
 
-#define bbAPPKEY            @"3c42332734934a18a65bfaa346ec8619"
+#define BRTPPKEY            @"3c42332734934a18a65bfaa346ec8619"
+#define BRTNOTIFIYID        @"f922r23jr2903t2-1jde44e2q3i2fo22"
+
+#pragma mark JPUSH
+
+#define JPSAPPKEY           @"61a4634138f50e1ee7a408bc"
 
 #endif /* Constant_h */
