@@ -7,6 +7,7 @@
 //
 
 #import "TaskIngViewController.h"
+#import "QRCodeViewController.h"
 #import "IWebController.h"
 #import "BaseModel.h"
 #import "TaskIngCell.h"
@@ -203,14 +204,20 @@
     [self.navigationController pushViewController:myView animated:YES];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    QRCodeViewController *qVC = (QRCodeViewController*)segue.destinationViewController;
+    __weak TaskIngViewController *weakSelf = self;
+    qVC.excutie = ^()
+    {
+        [weakSelf loadData:LoadData_Data];
+    };
 }
-*/
+
 
 @end

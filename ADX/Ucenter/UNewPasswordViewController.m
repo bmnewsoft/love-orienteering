@@ -55,7 +55,8 @@
     }
     
     [self showLoadingView];
-    NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{\"code\": \"%@\",\"opty\": \"updatapwd\",\"password\": \"%@\",\"phone\": \"%@\"}",_smsCode,_passwordCheckTF.text,_mobile]};
+    NSString *password = [APIClient digestPassword:_passwordCheckTF.text];
+    NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{\"code\": \"%@\",\"opty\": \"updatapwd\",\"password\": \"%@\",\"phone\": \"%@\"}",_smsCode,password,_mobile]};
     
     [[APIClient sharedClient] requestPath:USER_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
         [self hideLoadingView];

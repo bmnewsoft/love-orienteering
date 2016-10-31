@@ -24,7 +24,7 @@
             <objects>
                 <viewController storyboardIdentifier="UInfoViewController" hidesBottomBarWhenPushed="YES" id="Eeb-b6-KTe" customClass="UInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7FI-du-v0M">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="9V6-Hx-idl" customClass="TPKeyboardAvoidingScrollView">
@@ -156,16 +156,16 @@
             <objects>
                 <tableViewController storyboardIdentifier="USettingTableViewController" hidesBottomBarWhenPushed="YES" id="MWS-fC-X3I" customClass="USettingTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7a-XC-DyZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="ig1-ll-TR9">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ah5-Bg-o6A">
-                            <rect key="frame" x="0.0" y="206" width="320" height="53"/>
+                            <rect key="frame" x="0.0" y="206" width="375" height="53"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SSW-BF-gnn">
@@ -187,10 +187,10 @@
                             <tableViewSection id="kvF-RT-ggt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="USettingCell" id="v20-nu-zqr" customClass="USettingCell">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="20" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v20-nu-zqr" id="qhR-QR-Dac">
-                                            <frame key="frameInset" width="320" height="62"/>
+                                            <frame key="frameInset" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="USetting_bg" id="BQI-ZE-ZCK">
@@ -213,10 +213,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="USettingCell" id="Mnt-Zv-s5n" customClass="USettingCell">
-                                        <rect key="frame" x="0.0" y="82" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="82" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mnt-Zv-s5n" id="y5q-XW-XY8">
-                                            <frame key="frameInset" width="320" height="62"/>
+                                            <frame key="frameInset" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="USetting_bg" id="4k7-EI-9cf">
@@ -239,10 +239,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="USettingCell" id="aeF-Oh-1r2" customClass="USettingCell">
-                                        <rect key="frame" x="0.0" y="144" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aeF-Oh-1r2" id="Uof-A0-x7g">
-                                            <frame key="frameInset" width="320" height="62"/>
+                                            <frame key="frameInset" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="USetting_bg" id="48k-kf-a1r">
@@ -283,7 +283,7 @@
             <objects>
                 <viewController storyboardIdentifier="UFeedBackViewController" title="吐槽产品" hidesBottomBarWhenPushed="YES" id="gqL-gf-tJN" customClass="UFeedBackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="npw-gn-GTP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mK3-73-hjd">
@@ -322,7 +322,7 @@
             <objects>
                 <viewController storyboardIdentifier="UAboutViewController" title="关于我们" id="UpM-Df-lnp" customClass="UAboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idw-ew-v9l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="联系我们：www.wisparksports.com                             官方微信公众平台：爱定向                                      版本V1.0" textAlignment="center" selectable="NO" id="r6p-pM-wsR">
@@ -350,7 +350,7 @@
             <objects>
                 <viewController title="修改密码" hidesBottomBarWhenPushed="YES" id="4Ly-Zt-d2g" customClass="URePasswordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YVu-oa-TPz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" id="WCT-u6-qFm">
@@ -410,7 +410,7 @@
             <objects>
                 <viewController storyboardIdentifier="UNewPasswordViewController" title="修改密码" hidesBottomBarWhenPushed="YES" id="cZm-ly-M9g" customClass="UNewPasswordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="glS-tP-VZ2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入新密码" textAlignment="natural" minimumFontSize="17" id="n9c-7b-dFY">
@@ -453,11 +453,11 @@
             <objects>
                 <tableViewController id="ODi-yA-tWE" customClass="UMatchDetailTVController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="68" sectionHeaderHeight="1" sectionFooterHeight="28" id="HSQ-u4-ybr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="LEx-di-QN3">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uMatch_content" id="OVB-qO-Ra6">
@@ -506,11 +506,11 @@
                                     <color key="textColor" red="0.31372549020000001" green="0.36078431370000003" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uMatch_time" id="fJo-8s-jRN">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uMatch_time" id="fJo-8s-jRN">
                                     <frame key="frameInset" minX="10" minY="186" width="301" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总耗时03小时41分钟32秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJr-sp-Gu9">
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总耗时03小时41分钟32秒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJr-sp-Gu9">
                                     <frame key="frameInset" minX="106" minY="197" width="168" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -522,10 +522,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskIngCell" id="YWz-Bi-A68" customClass="TaskIngCell">
-                                <rect key="frame" x="0.0" y="295" width="320" height="68"/>
+                                <rect key="frame" x="0.0" y="336" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YWz-Bi-A68" id="Mou-YF-LzX">
-                                    <frame key="frameInset" width="320" height="68"/>
+                                    <frame key="frameInset" width="375" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_cell" id="23a-xH-W0D">
@@ -593,14 +593,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bs-MA-a32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-346"/>
+            <point key="canvasLocation" x="793.5" y="-346.5"/>
         </scene>
         <!--Certificate Detail View Controller-->
         <scene sceneID="i1C-hq-yvA">
             <objects>
                 <viewController id="uDl-7V-zNh" customClass="UCertificateDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G2d-yy-WHr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ubook_Bg" id="OwZ-cl-doH">
@@ -679,15 +679,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="UMatchTableViewController" hidesBottomBarWhenPushed="YES" id="q6s-nJ-9Jf" customClass="UMatchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="byC-1q-Ii6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UMatchCell" id="Ak9-Ao-evh" customClass="UMatchCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ak9-Ao-evh" id="cp4-MH-NZQ">
-                                    <frame key="frameInset" width="320" height="80"/>
+                                    <frame key="frameInset" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headImage" id="p2v-MO-viZ">
@@ -738,15 +738,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="UCertificateTableViewController" hidesBottomBarWhenPushed="YES" id="TOZ-35-Z5B" customClass="UCertificateTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="CvU-Ko-qZh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UCertificateCell" id="TjD-Di-yBa" customClass="UCertificateCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TjD-Di-yBa" id="XFv-kw-w23">
-                                    <frame key="frameInset" width="320" height="80"/>
+                                    <frame key="frameInset" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="L1t-eK-nEn">
@@ -802,15 +802,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="UMessageTableViewController" hidesBottomBarWhenPushed="YES" id="rtK-OV-nt9" customClass="UMessageTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" id="NUT-p4-CfQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UMessageCell" id="3u1-Yt-XNk" customClass="UMessageCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="94"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3u1-Yt-XNk" id="vo6-N3-4zE">
-                                    <frame key="frameInset" width="320" height="94"/>
+                                    <frame key="frameInset" width="375" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UMessage" id="kp2-9z-svv">
@@ -881,6 +881,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
 </document>

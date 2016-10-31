@@ -10,4 +10,6 @@
 
 @interface TaskViewController : ADXBaseViewController
 
+@property (nonatomic,assign)NSInteger beforeSelectIndex;
+
 @end

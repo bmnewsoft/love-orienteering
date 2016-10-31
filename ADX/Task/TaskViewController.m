@@ -44,7 +44,7 @@
 #pragma mark Button Action
 
 - (IBAction)popButtomAction:(id)sender {
-    self.tabBarController.selectedIndex = 0;
+    self.tabBarController.selectedIndex = _beforeSelectIndex;
 }
 /*
 #pragma mark - Navigation

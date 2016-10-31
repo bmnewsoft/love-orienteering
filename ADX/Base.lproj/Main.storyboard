@@ -10,7 +10,7 @@
         <scene sceneID="jVU-eH-CDi">
             <objects>
                 <tabBarController id="cVc-Yp-ALB" customClass="TabBarController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="tabbar_bg_all" id="2Nr-cK-VXF">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" backgroundImage="tabbar_bg_mine" id="2Nr-cK-VXF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -172,7 +172,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I9R-5u-qed" id="1E9-gi-NmT">
-                                                    <frame key="frameInset" width="320" height="61"/>
+                                                    <frame key="frameInset" width="320" height="62"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -239,23 +239,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ngy-07-vi8">
-                                <frame key="frameInset" minX="20" minY="390" width="89" height="35"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ngy-07-vi8">
+                                <frame key="frameInset" minX="20" minY="334" width="89" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="go_buttom1"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xvg-sc-jeW">
-                                <frame key="frameInset" minX="116" minY="390" width="89" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xvg-sc-jeW">
+                                <frame key="frameInset" minX="26" minY="390" width="126" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="go_buttom2"/>
+                                <state key="normal" image="go_task"/>
                                 <connections>
                                     <segue destination="QE0-56-raS" kind="push" id="Ozs-TU-lEJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Qp-D2-7bN">
-                                <frame key="frameInset" minX="213" minY="390" width="89" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Qp-D2-7bN">
+                                <frame key="frameInset" minX="168" minY="390" width="126" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="go_buttom3"/>
+                                <state key="normal" image="go_scan"/>
                                 <connections>
                                     <segue destination="YiW-XB-8ib" kind="push" id="Xmt-ix-NH2"/>
                                 </connections>
@@ -278,6 +278,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="go_title" id="9Pa-IG-9fF">
+                                <frame key="frameInset" minY="66" width="320" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -403,8 +407,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="6q3-V9-sWc">
-                                <frame key="frameInset" minY="98" width="320" height="406"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="6q3-V9-sWc">
+                                <frame key="frameInset" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -465,7 +469,7 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <view contentMode="scaleToFill" id="2u4-Qo-Qjb">
+                            <view hidden="YES" contentMode="scaleToFill" id="2u4-Qo-Qjb">
                                 <frame key="frameInset" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -543,14 +547,15 @@
         <image name="app_bg" width="320" height="569"/>
         <image name="go_buttom" width="320" height="49"/>
         <image name="go_buttom1" width="89" height="34"/>
-        <image name="go_buttom2" width="89" height="34"/>
-        <image name="go_buttom3" width="89" height="34"/>
+        <image name="go_scan" width="126" height="34"/>
+        <image name="go_task" width="125" height="34"/>
+        <image name="go_title" width="320" height="112"/>
         <image name="headImage" width="275" height="275"/>
         <image name="head_bg" width="375" height="163"/>
         <image name="index_cell_bg" width="375" height="325"/>
         <image name="scanframe" width="244" height="244"/>
         <image name="scanline" width="220" height="5"/>
-        <image name="tabbar_bg_all" width="320" height="82"/>
+        <image name="tabbar_bg_mine" width="320" height="82"/>
         <image name="task_cell" width="320" height="68"/>
         <image name="task_cell_point" width="50" height="40"/>
         <image name="task_time" width="320" height="84"/>
@@ -562,7 +567,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_0.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="EbV-8q-3gf"/>
-        <segue reference="avr-0C-dXQ"/>
+        <segue reference="vd3-W0-zeu"/>
+        <segue reference="Xmt-ix-NH2"/>
     </inferredMetricsTieBreakers>
 </document>

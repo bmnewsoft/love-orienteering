@@ -9,6 +9,7 @@
 #import "TabBarController.h"
 #import "IndexTableViewController.h"
 #import "UCenterTableViewController.h"
+#import "TaskViewController.h"
 
 @interface TabBarController ()<UITabBarControllerDelegate>
 
@@ -95,15 +96,15 @@
     if (select == self.selectIndex)
     {
          UINavigationController *nav = (UINavigationController *)viewController;
-//        if ([NSStringFromClass([nav.topViewController class]) isEqualToString:@"IndexTableViewController"])
-//        {
-//            IndexTableViewController *iVc = (IndexTableViewController *)nav.topViewController;
-//            [iVc loadData];
-//        }
         if ([NSStringFromClass([nav.topViewController class]) isEqualToString:@"UCenterTableViewController"])
         {
             UCenterTableViewController *uVc = (UCenterTableViewController *)nav.topViewController;
             [uVc loadData];
+        }
+        else if ([nav.topViewController isKindOfClass:[IndexTableViewController class]])
+        {
+            IndexTableViewController *iVc = (IndexTableViewController *)nav.topViewController;
+            [iVc loadData];
         }
     }
     else
@@ -111,6 +112,21 @@
         self.selectIndex = tabBarController.selectedIndex;
     }
     
+    if(tabBarController.selectedIndex == 0)
+        self.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar_bg_mine"];
+    else if(tabBarController.selectedIndex == 2)
+        self.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar_bg_index"];
+    
+}
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController * navigationcontroller = (UINavigationController *)viewController;
+    if([navigationcontroller.topViewController isKindOfClass:[TaskViewController class]])
+    {
+       TaskViewController *vc =  (TaskViewController *)navigationcontroller.topViewController;
+        vc.beforeSelectIndex = tabBarController.selectedIndex;
+    }
+    return  YES;
 }
 
 @end

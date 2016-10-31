@@ -203,6 +203,10 @@
         [[APIClient sharedClient] requestPath:QRUPLOAD_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
             NSLog(@"%@",JSON);
             [self showToast:JSON[@"message"]];
+            if (self.excutie)
+            {
+                self.excutie();
+            }
             [self.navigationController popViewControllerAnimated:YES];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [self showToast:@"扫描失败"];

@@ -245,18 +245,19 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
     //重构当前Beacon所在Region,如果your_region_id一致会覆盖之前的Region,另region监听个数<=20个
     BRTBeaconRegion *region = [[BRTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString: DEFAULT_UUID] identifier:@"your_region_id"];
     region.notifyOnEntry = YES;
-    region.notifyOnExit = YES;
+//    region.notifyOnExit = YES;
 //    region.notifyEntryStateOnDisplay = YES;
     [BRTBeaconSDK startMonitoringForRegions:@[region]];
 }
 
-- (void)goWebViewController:(NSString *)url
+- (void)goWebViewController:(NSString *)url title:(NSString *)title;
 {
     UITabBarController *navigator = (UITabBarController *)self.window.rootViewController;
     UINavigationController *nc = navigator.selectedViewController;
     UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"Main");
     IWebController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:@"IWebController"];
     infoVc.webUrl = url;
+    infoVc.titleStr = title;
     [nc pushViewController:infoVc animated:YES];
 }
 
@@ -299,7 +300,7 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
         NSInteger code = [JSON[@"success"] integerValue];
         if (code == SUCCESS_CODE)
         {
-            [self goWebViewController:JSON[@"message"]];
+            [self goWebViewController:JSON[@"message"] title:JSON[@"keyvalue"]];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

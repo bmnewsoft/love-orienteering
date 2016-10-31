@@ -47,7 +47,7 @@
 - (void)loadData
 {
     [self showLoadingView];
-    
+    [_datas removeAllObjects];
     NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
     if (userId == FAILED_CODE)
     {

@@ -9,6 +9,8 @@
 #import "ADXBaseViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
+typedef void(^Excutie)();
+
 @interface QRCodeViewController : ADXBaseViewController <AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate>
 {
     int num;
@@ -23,5 +25,7 @@
 @property (strong,nonatomic)AVCaptureSession * session;
 @property (strong,nonatomic)AVCaptureVideoPreviewLayer * preview;
 @property (nonatomic, retain) UIImageView * line;
+
+@property (nonatomic,assign) Excutie excutie;
 
 @end
