@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoadingView];
     [self.bgImageView removeFromSuperview];
     upOrdown = NO;
     num =0;
@@ -39,13 +40,18 @@
         if (_session && ![_session isRunning]) {
             [_session startRunning];
         }
-        timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(scanAnimation) userInfo:nil repeats:YES];
+//        timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(scanAnimation) userInfo:nil repeats:YES];
     }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [timer invalidate];
 
+}
+
+-(void)startScan
+{
+    timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(scanAnimation) userInfo:nil repeats:YES];
 }
 
 #pragma mark 设置相机
@@ -68,6 +74,8 @@
             [self.view.layer insertSublayer:self.preview atIndex:0];
             // Start
             [self.session startRunning];
+            [self startScan];
+            [self hideLoadingView];
         });
     });
 }
@@ -99,7 +107,6 @@
                         //第一次用户接受
                         
                         [self setupCamera];
-                        timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(scanAnimation) userInfo:nil repeats:YES];
                     }else{
                         //用户拒绝
                         hasCameraRight = NO;
@@ -115,6 +122,7 @@
             case AVAuthorizationStatusDenied:
             case AVAuthorizationStatusRestricted:
                 // 用户明确地拒绝授权，或者相机设备无法访问
+                [self hideLoadingView];
                 [self showToast:@"请到设置-隐私-相机中授权"];
                 break;
             default:
@@ -164,7 +172,7 @@
     if (upOrdown == NO) {
         num ++;
         _scanLineImageView.frame = CGRectMake(CGRectGetMinX(_scanLineImageView.frame), lineIV_Y + 2*num, CGRectGetWidth(_scanLineImageView.frame), CGRectGetHeight(_scanLineImageView.frame));
-        if (2 * num >= CGRectGetHeight(_scanFrameImageView.frame) - 10) {
+        if (2 * num >= CGRectGetHeight(_scanFrameImageView.frame) - 15) {
             upOrdown = YES;
         }
     }

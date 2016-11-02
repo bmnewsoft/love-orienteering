@@ -964,7 +964,7 @@
 				TargetAttributes = {
 					69A4175F1D9F47B3006E4E58 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = VYU8Z2XMZF;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1169,6 +1169,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 82ZF23D53K;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1214,6 +1215,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 82ZF23D53K;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1239,6 +1241,7 @@
 				CODE_SIGN_ENTITLEMENTS = ADX/ADX.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ADX/ADX.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				HEADER_SEARCH_PATHS = $SRCROOT/Thirds/JPush;
@@ -1253,7 +1256,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bmnew.adx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b27864a4-a27a-40b0-9b53-dde276ce49be";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = AdxApp;
 				USER_HEADER_SEARCH_PATHS = $SRCROOT/Thirds/JPush;
 			};
 			name = Debug;
@@ -1265,6 +1269,7 @@
 				CODE_SIGN_ENTITLEMENTS = ADX/ADX.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: VIGETO (Shanghai) Sports Co. Ltd. (VYU8Z2XMZF)";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ADX/ADX.pch";
 				HEADER_SEARCH_PATHS = $SRCROOT/Thirds/JPush;
 				INFOPLIST_FILE = ADX/Info.plist;
@@ -1278,7 +1283,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bmnew.adx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b27864a4-a27a-40b0-9b53-dde276ce49be";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = AdxApp;
 				USER_HEADER_SEARCH_PATHS = $SRCROOT/Thirds/JPush;
 			};
 			name = Release;

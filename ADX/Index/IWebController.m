@@ -8,7 +8,7 @@
 
 #import "IWebController.h"
 
-@interface IWebController ()
+@interface IWebController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *iWebView;
 
 @end
@@ -19,8 +19,10 @@
     [super viewDidLoad];
     self.title = _titleStr;
     [_iWebView.scrollView setBounces:NO];
+    _iWebView.delegate = self;
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:_webUrl]];
     [_iWebView loadRequest:request];
+    timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideLoadingView) userInfo:nil repeats:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +30,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self showLoadingView];
+}
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideLoadingView];
+}
 
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self hideLoadingView];
+    [self showToast:error.description];
+}
 /*
 #pragma mark - Navigation
 

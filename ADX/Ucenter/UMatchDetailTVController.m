@@ -197,7 +197,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BaseModel *model =  _datas[indexPath.row];
-    if (model.title4 == nil)
+    if (model.title4 == nil || model.title4.length < 1)
     {
         return;
     }

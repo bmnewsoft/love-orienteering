@@ -9,6 +9,9 @@
 #import "ADXBaseViewController.h"
 
 @interface IWebController : ADXBaseViewController
+{
+    NSTimer * timer;
+}
 
 @property (nonatomic,strong)NSString *webUrl;
 @property (nonatomic,strong)NSString *titleStr;

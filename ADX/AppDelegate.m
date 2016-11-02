@@ -37,17 +37,20 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [UITabBar.appearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [ADXAppearance setNavigationBarAppearance];
+    
     [self setBaseParameters];
     
     [self loadLaunchScreenView];
     
-    
+    //极光推送注册
     [self jPushRegisiter:launchOptions];
     
+    
+    //智石注册
     [self BRTBeaconRegister];
     
-    
-    [self startButtonClicked:nil];
+    //扫描智石设备
+    [self startRangingBRTBeacon];
     
     [self watchBeacon];
     return YES;
@@ -125,8 +128,11 @@
     return _user;
 }
 
-#pragma mark 智石
+#pragma mark 智石 -
 
+/**
+ * 注册
+ */
 - (void)BRTBeaconRegister
 {
     [BRTBeaconSDK registerApp:BRTPPKEY onCompletion:^(BOOL complete,NSError *error) {
@@ -134,6 +140,9 @@
     }];
 }
 
+/**
+ * 本地通知
+ */
 - (void)sendLocalNotification:(NSString*)msg
 {
     UILocalNotification *notice = [[UILocalNotification alloc] init];
@@ -143,6 +152,104 @@
     notice.userInfo = @{@"msg":BRTNOTIFIYID};
     [[UIApplication sharedApplication] presentLocalNotificationNow:notice];
 }
+
+/**
+ * 开始扫描设备
+ */
+- (IBAction)startRangingBRTBeacon
+{
+    __unsafe_unretained typeof(self) weakSelf = self;
+    //扫描BrihtBeacon额外蓝牙信息。支持连接配置。（含UUID检测iBeacon信息）
+    [BRTBeaconSDK startRangingWithUuids:@[[[NSUUID alloc] initWithUUIDString:DEFAULT_UUID]] onCompletion:^(NSArray *beacons, BRTBeaconRegion *region, NSError *error) {
+        if (!error) {
+            [weakSelf reloadData:beacons];
+        }else{
+            //检查蓝牙是否打开
+            [self showMsg:@"请开启蓝牙"];
+        }
+    }];
+}
+
+
+/**
+ * 设备排序
+ */
+- (void)reloadData:(NSArray*)beacons
+{
+    self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(BRTBeacon* obj1, BRTBeacon* obj2){
+        return obj1.distance.floatValue>obj2.distance.floatValue?NSOrderedDescending:NSOrderedAscending;
+    }];
+}
+
+- (void)watchBeacon
+{
+    //IOS8.0 推送必须询求用户同意，来触发通知（按你程序所需）
+    if ([[[UIDevice currentDevice] systemVersion] intValue]>=8) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+    
+    //重构当前Beacon所在Region,如果your_region_id一致会覆盖之前的Region,另region监听个数<=20个
+    BRTBeaconRegion *region = [[BRTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString: DEFAULT_UUID] identifier:@"your_region_id"];
+    region.notifyOnEntry = YES;
+    //    region.notifyOnExit = YES;
+    //    region.notifyEntryStateOnDisplay = YES;
+    [BRTBeaconSDK startMonitoringForRegions:@[region]];
+}
+
+- (void)goWebViewController:(NSString *)url title:(NSString *)title;
+{
+    if (url == nil || url.length < 1)
+    {
+        return;
+    }
+    UIViewController *rootVc = self.window.rootViewController;
+    UINavigationController *navigationController;
+    if ([rootVc isKindOfClass:[UITabBarController class]])
+    {
+        UITabBarController *navigator = (UITabBarController *)rootVc;
+        navigationController = navigator.selectedViewController;
+    }
+    else
+        return ;
+    
+    UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"Main");
+    IWebController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:@"IWebController"];
+    infoVc.webUrl = url;
+    infoVc.titleStr = title;
+    [navigationController pushViewController:infoVc animated:YES];
+}
+
+
+/**
+ * ibeacon设备信息上传
+ */
+- (void)beaconsMsgUpload
+{
+    //    [self showLoadingView];
+    BRTBeacon *beacontemp;
+    if (_beacons.count < 1)
+        beacontemp = [[BRTBeacon alloc] init];
+    else
+        beacontemp = _beacons[0];
+    
+    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
+    NSString *keyvalueStr = [NSString stringWithFormat:@"%@_%@_%@_%@",beacontemp.major,beacontemp.minor,beacontemp.macAddress == nil ? @"null":beacontemp.macAddress,@"iOS"];
+    NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{\"fkname\": \"\",\"keyvalue\": \"%@\",\"appcode\": \"A01\",\"userid\": \"%zi\",\"target\": \"PushOL\"}",keyvalueStr,userId]};
+    
+    [[APIClient sharedClient] requestPath:QRUPLOAD_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
+        NSInteger code = [JSON[@"success"] integerValue];
+        if (code == SUCCESS_CODE)
+        {
+            [self goWebViewController:JSON[@"message"] title:JSON[@"keyvalue"]];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
+}
+
+
+#pragma mark 智石 - Delegate
 /**
  * 只能在AppDelegate实现
  *
@@ -213,54 +320,6 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
     
 }
 
-- (IBAction)startButtonClicked:(id)sender
-{
-    __unsafe_unretained typeof(self) weakSelf = self;
-    //扫描BrihtBeacon额外蓝牙信息。支持连接配置。（含UUID检测iBeacon信息）
-    [BRTBeaconSDK startRangingWithUuids:@[[[NSUUID alloc] initWithUUIDString:DEFAULT_UUID]] onCompletion:^(NSArray *beacons, BRTBeaconRegion *region, NSError *error) {
-        if (!error) {
-            [weakSelf reloadData:beacons];
-        }else{
-            //检查蓝牙是否打开
-            [self showRemoteNotificationMsg:error.description];
-        }
-    }];
-}
-
-- (void)reloadData:(NSArray*)beacons
-{
-    self.beacons = [beacons sortedArrayUsingComparator:^NSComparisonResult(BRTBeacon* obj1, BRTBeacon* obj2){
-        return obj1.distance.floatValue>obj2.distance.floatValue?NSOrderedDescending:NSOrderedAscending;
-    }];
-}
-
-- (void)watchBeacon
-{
-    //IOS8.0 推送必须询求用户同意，来触发通知（按你程序所需）
-    if ([[[UIDevice currentDevice] systemVersion] intValue]>=8) {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    }
-    
-    //重构当前Beacon所在Region,如果your_region_id一致会覆盖之前的Region,另region监听个数<=20个
-    BRTBeaconRegion *region = [[BRTBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString: DEFAULT_UUID] identifier:@"your_region_id"];
-    region.notifyOnEntry = YES;
-//    region.notifyOnExit = YES;
-//    region.notifyEntryStateOnDisplay = YES;
-    [BRTBeaconSDK startMonitoringForRegions:@[region]];
-}
-
-- (void)goWebViewController:(NSString *)url title:(NSString *)title;
-{
-    UITabBarController *navigator = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *nc = navigator.selectedViewController;
-    UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"Main");
-    IWebController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:@"IWebController"];
-    infoVc.webUrl = url;
-    infoVc.titleStr = title;
-    [nc pushViewController:infoVc animated:YES];
-}
-
 
 #pragma mark LaunchScreen
 -(void) loadLaunchScreenView
@@ -280,34 +339,6 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
 - (void)removeLaunchScreen
 {
     [_lunchView removeFromSuperview];
-}
-
-
-- (void)beaconsMsgUpload:(BRTBeacon *)beacon
-{
-    //    [self showLoadingView];
-    BRTBeacon *beacontemp;
-    if (_beacons.count < 1)
-        beacontemp = [[BRTBeacon alloc] init];
-    else
-        beacontemp = _beacons[0];
-    
-    NSInteger userId = [ADXUserDefault getIntWithKey:kUSERID withDefault:FAILED_CODE];
-    NSString *keyvalueStr = [NSString stringWithFormat:@"%@_%@_%@_%@",beacontemp.major,beacontemp.minor,beacontemp.macAddress == nil ? @"null":beacontemp.macAddress,@"iOS"];
-    NSDictionary *parameter = @{@"jsons":[NSString stringWithFormat:@"{\"fkname\": \"\",\"keyvalue\": \"%@\",\"appcode\": \"A01\",\"userid\": \"%zi\",\"target\": \"PushOL\"}",keyvalueStr,userId]};
-    
-    [[APIClient sharedClient] requestPath:QRUPLOAD_URL parameters:parameter success:^(AFHTTPRequestOperation *operation, id JSON) {
-        NSInteger code = [JSON[@"success"] integerValue];
-        if (code == SUCCESS_CODE)
-        {
-            [self goWebViewController:JSON[@"message"] title:JSON[@"keyvalue"]];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    }];
-    [BRTBeaconSDK stopRangingBrightBeacons];
-
-    
 }
 
 
@@ -397,7 +428,7 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"进入ibeacon区域" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *destructive = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self beaconsMsgUpload:nil];
+            [self beaconsMsgUpload];
         }];
         [alert addAction:destructive];
         UINavigationController *navigator = (UINavigationController *)self.window.rootViewController;
@@ -419,7 +450,7 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
     }
     else if([userInfo[@"msg"] isEqualToString:BRTNOTIFIYID])
     {
-        [self beaconsMsgUpload:nil];
+        [self beaconsMsgUpload];
         
         return ;
     }
@@ -428,11 +459,33 @@ monitoringDidFailForRegion:(BRTBeaconRegion *)region
 
 - (void)goMsgVc
 {
-    UITabBarController *navigator = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *nc = navigator.selectedViewController;
+    
+    UIViewController *rootVc = self.window.rootViewController;
+    UINavigationController *navigationController;
+    if ([rootVc isKindOfClass:[UITabBarController class]])
+    {
+        UITabBarController *navigator = (UITabBarController *)rootVc;
+        navigationController = navigator.selectedViewController;
+    }
+    else
+        return ;
+    
     UIStoryboard *storyBoard = STORYBOARDWITHNAME(@"UCenter");
     UIViewController *infoVc = [storyBoard instantiateViewControllerWithIdentifier:@"UMessageTableViewController"];
-    [nc pushViewController:infoVc animated:YES];
+    [navigationController pushViewController:infoVc animated:YES];
+}
+
+
+- (void)showMsg:(NSString *)msg
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"cancel");
+        
+    }];
+    [alert addAction:cancel];
+    UINavigationController *navigator = (UINavigationController *)self.window.rootViewController;
+    [navigator presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)showRemoteNotificationMsg:(NSString *)msg

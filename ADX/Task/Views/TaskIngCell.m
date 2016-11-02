@@ -45,6 +45,18 @@
     }
     else if([_model.title1 isEqualToString:@"3"])
     {
+        statusStr = @"未进行";
+        _statusLabel.textColor = [UIColor redColor];
+        _taskPointRight.hidden = TRUE;
+    }
+    else if([_model.title1 isEqualToString:@"4"])
+    {
+        statusStr = @"结束";
+        _statusLabel.textColor = UIColorRGB(80, 92, 112);
+        _taskPointRight.hidden = TRUE;
+    }
+    else if([_model.title1 isEqualToString:@"0"])
+    {
         statusStr = @"未执行";
         _statusLabel.textColor = [UIColor redColor];
         _taskPointRight.hidden = TRUE;
